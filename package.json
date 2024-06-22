@@ -1,5 +1,5 @@
 {
-  "name": "scffld",
+  "name": "@querc/scffld",
   "version": "0.0.1-next.0",
   "description": "Markdown based code scaffolding",
   "main": "dist/index.js",
