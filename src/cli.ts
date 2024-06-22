@@ -53,8 +53,7 @@ const main = async () => {
 
     const response = await fetch(url);
     templateContent = await response.text();
-    fetchSpinner.prefixText = '✅';
-    fetchSpinner.stopAndPersist();
+    fetchSpinner.stopAndPersist({ symbol: '✅' });
   } else {
     templateContent = fs
       .readFileSync(
@@ -67,10 +66,6 @@ const main = async () => {
     console.error('No template content :(');
     process.exit(1);
   }
-
-  console.log('');
-  const spinner = ora(`Scaffolding template ${template}...`).start();
-  console.log('');
 
   let codeblocks: any[] = [];
   let params: any;
@@ -107,10 +102,6 @@ const main = async () => {
     } else {
       params.options = options;
     }
-
-    if (codeblocks && codeblocks.length > 0) {
-      renderCodeblocks(codeblocks, params, spinner, startTime);
-    }
   });
 
   program.parse(process.argv);
@@ -121,6 +112,9 @@ const main = async () => {
   );
 
   if (params && params.options) {
+    console.log('');
+    const spinner = ora(`Scaffolding template ${template}...`).start();
+
     renderCodeblocks(codeblocks, params, spinner, startTime);
   }
 };

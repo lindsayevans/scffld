@@ -50,10 +50,8 @@ export const renderCodeblocks = (
   const endTime = new Date();
   const time = endTime.getTime() - startTime.getTime();
 
-  spinner.prefixText = '✅';
-  spinner.stopAndPersist();
-  console.log('');
-  console.log(`Wrote ${count} files in ${time}ms`);
+  spinner.stopAndPersist({ symbol: '✅' });
+  console.log(`\nWrote ${count} files in ${time}ms`);
 
   if (params.postInstallMessage) {
     outputMessage(params.postInstallMessage, params);
