@@ -8,7 +8,7 @@
 
 ## Why?
 
-Yeoman etc. seem old & unmaintained, plus I woke up at 3am & was bored
+I wanted something that was a bit less complicated than Yeoman et al.
 
 ## How?
 

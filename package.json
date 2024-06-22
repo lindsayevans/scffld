@@ -13,7 +13,12 @@
     "start": "npm link && scffld",
     "clean": "rm -rf demo-src"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "scaffold",
+    "scaffolding",
+    "markdown"
+  ],
   "author": "Lindsay Evans <linz@linz.id.au>",
   "license": "MIT",
   "repository": {
