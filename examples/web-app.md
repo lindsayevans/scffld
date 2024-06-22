@@ -13,6 +13,16 @@ props:
   includeIcons:
     type: boolean
     default: true
+postInstallMessage: |
+  ___
+  # Your web app '<!-- @scffld name -->' has been created!
+  \
+  To get started, run the following commands:
+  ```sh
+  cd <!-- @scffld-outputDirectory -->
+  npm i
+  npm start
+  ```
 ---
 
 ```json { filename: 'package.json' }

@@ -35,10 +35,15 @@ export const parseFile = (
     return relativePath;
   };
 
+  const outputDirectory = () => {
+    return params.outputDirectory || '';
+  };
+
   const upperCase = (s: string) => s.toUpperCase();
   const lowerCase = (s: string) => s.toLowerCase();
 
   const replaceMethods: Record<string, any> = {
+    outputDirectory: outputDirectory,
     relativeRoot: relativeRoot,
     upper: upperCase,
     lower: lowerCase,

@@ -3,6 +3,7 @@ import { Ora } from 'ora';
 
 import { parseFile } from './parseFile.js';
 import { writeFile } from './writeFile.js';
+import { outputMessage } from './outputMessage.js';
 
 export const renderCodeblocks = (
   codeblocks: any[],
@@ -48,4 +49,8 @@ export const renderCodeblocks = (
   spinner.stopAndPersist();
   console.log('');
   console.log(`Wrote ${count} files in ${time}ms`);
+
+  if (params.postInstallMessage) {
+    outputMessage(params.postInstallMessage, params);
+  }
 };
