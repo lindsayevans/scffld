@@ -29,7 +29,7 @@ npx @querc/scffld examples/simple --name="My Awesome Component" --includeStyle=f
 ## TODO
 
 - [ ] Check if it works on Windows
-- [ ] else/elseif conditionals
+- [ ] ~~else~~/elseif conditionals
 - [ ] Nested conditionals
 - [ ] Export API
 - [ ] Tests
