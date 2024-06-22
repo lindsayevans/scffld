@@ -11,11 +11,14 @@ import ora from 'ora';
 import packageJson from '../package.json' assert { type: 'json' };
 
 import { renderCodeblocks } from './renderCodeblocks.js';
+import chalk from 'chalk';
 
 const startTime = new Date();
 
 console.log(
-  figlet.textSync('scffld', { font: 'Doom' }) + ` v${packageJson.version}`
+  chalk.hex('#008080')(figlet.textSync('scffld', { font: 'Doom' })) +
+    ' ' +
+    chalk.bold.hex('#fa8072	')(`v${packageJson.version}`)
 );
 
 program
