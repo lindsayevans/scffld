@@ -39,7 +39,8 @@ export const renderCodeblocks = (
     );
 
     writeFile(
-      (params.outputDirectory || '') + renderedPath,
+      (params.options.outputDirectory || params.outputDirectory || '') +
+        renderedPath,
       renderedFile,
       type
     );

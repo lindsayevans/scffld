@@ -15,7 +15,9 @@ I wanted something that was a bit less complicated than Yeoman et al.
 ### Remote template
 
 ```sh
-npx @querc/scffld github:lindsayevans/scffld/examples/simple --name="My Awesome Component"
+npx @querc/scffld@latest github:lindsayevans/scffld/examples/simple \
+    --name="My Awesome Component" \
+    -o ./my-project/src/
 ```
 
 ### Local template
@@ -24,14 +26,26 @@ npx @querc/scffld github:lindsayevans/scffld/examples/simple --name="My Awesome 
 2. Run this command, replacing `examples/simple` with your example file
 
 ```sh
-npx @querc/scffld examples/simple --name="My Awesome Component"
+npx @querc/scffld examples/simple \
+    --name="My Awesome Component" \
+    -o ./my-project/src/
 ```
 
-3. Created files will be in `demo-src`
-4. Try it out with a few options different to the defaults:
+Created files will be in `my-project/src`
+
+Try it out with a few options different to the defaults:
 
 ```sh
-npx @querc/scffld examples/simple --name="My Awesome Component" --includeStyle=false --yeah=false --nah=true
+npx @querc/scffld examples/simple \
+    --name="My Awesome Component" \
+    -o ./my-project/src/ \
+    --includeStyle=false --yeah=false --nah=true
+```
+
+Show supported potions for the template
+
+```sh
+npx @querc/scffld examples/simple --help
 ```
 
 ## TODO

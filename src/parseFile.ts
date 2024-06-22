@@ -24,7 +24,8 @@ export const parseFile = (
   renderedPath?: string
 ) => {
   const relativeRoot = () => {
-    const outputDirectory = params.outputDirectory || '';
+    const outputDirectory =
+      params.options.outputDirectory || params.outputDirectory || '';
     const resolvedOutputDirectory = path.resolve(outputDirectory);
     const resolvedFileDirectory = path.dirname(
       path.resolve(outputDirectory + renderedPath)
@@ -36,7 +37,7 @@ export const parseFile = (
   };
 
   const outputDirectory = () => {
-    return params.outputDirectory || '';
+    return params.options.outputDirectory || params.outputDirectory || '';
   };
 
   const upperCase = (s: string) => s.toUpperCase();

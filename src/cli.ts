@@ -70,6 +70,7 @@ const main = async () => {
 
   console.log('');
   const spinner = ora(`Scaffolding template ${template}...`).start();
+  console.log('');
 
   let codeblocks: any[] = [];
   let params: any;
@@ -78,6 +79,11 @@ const main = async () => {
   const frontmatter = templateContent.split('---')[1];
   const fmParsed = YAML.parse(frontmatter);
   if (fmParsed) {
+    const option = new Option('-o --outputDirectory');
+    option.required = false;
+    option.optional = true;
+    program.addOption(option);
+
     params = { ...fmParsed };
     if (fmParsed.props) {
       Object.keys(fmParsed.props).forEach((name: string) => {
