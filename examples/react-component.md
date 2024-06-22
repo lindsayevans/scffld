@@ -1,6 +1,6 @@
 ---
 # YAML frontmatter to define prop defaults & so on
-outputDirectory: src
+outputDirectory: ./demo-src/react/
 props:
   name:
     type: string
@@ -25,8 +25,8 @@ Could probably use any of the methods from [change-case](https://www.npmjs.com/p
 ## File path directives
 
 - `${SCFFLD(propName)}`
-- `${SCFFLD_KEBAB(propName)}`
-- `${SCFFLD_PASCAL(propName)}`
+- `${ @scffld-kebab propName }`
+- `${ @scffld-pascal propName }`
 - ...
 
 ## Output directives
@@ -40,7 +40,7 @@ Could probably use any of the methods from [change-case](https://www.npmjs.com/p
 
 - `/* @scffld-if propName */`
 - `/* @scffld-else */`
-- `/* @scffld-elseif */`
+- `/* @scffld-elseif propName */`
 - `/* @scffld-endif */`
 - ...
 
@@ -48,9 +48,9 @@ JS/CSS/C#/Java and so on use C-style multiline comments for directives.
 
 Probably ignore any code blocks that don't have `{ filename: ...}`
 
-```tsx { filename: ${SCFFLD_PASCAL(name)}/${SCFFLD_PASCAL(name)}.tsx }
+```tsx { filename: '${ @scffld-pascal name }/${ @scffld-pascal name }.tsx' }
 import React from 'react'
-import { Button } from '/* @scffld appRoot *//components';
+import { Button } from '/* @scffld appRoot */components';
 
 /* @scffld-if includeStyle */
 import './/* @scffld-pascal name */.scss'
@@ -62,15 +62,15 @@ export type /* @scffld-pascal name */Props = {
     title?: string
 }
 
-export const /* @scffld-pascal name */: React.FC</* @scffld-pascal name */Props> (props) => {
+export const /* @scffld-pascal name */: React.FC</* @scffld-pascal name */Props> = (props) => {
     const { title = '/* @scffld name */' } = props
 
     return (<div className={baseClass}><Button>{ title }</Button></div>)
 }
 ```
 
-```scss { filename: ${SCFFLD_PASCAL(name)}/${SCFFLD_PASCAL(name)}.scss, condition: includeStyle }
-@use '/* @scffld relativeRoot */design-system/tokens';
+```scss { filename: '${ @scffld-pascal name }/${ @scffld-pascal name }.scss', condition: includeStyle }
+@use '/* @scffld-relativeRoot */design-system/tokens';
 
 ./* @scffld-kebab name */ {
   outline: 1px dashed tokens.$colour-teal;
@@ -83,7 +83,7 @@ export const /* @scffld-pascal name */: React.FC</* @scffld-pascal name */Props>
 
 HTML, SVG etc. would need to use HTML-style comments
 
-```html { filename: ${SCFFLD_PASCAL(name)}/${SCFFLD_KEBAB(name)}.html }
+```html { filename: '${ @scffld-pascal name }/${ @scffld-kebab name }.html' }
 <div class="<!-- @scffld-kebab name -->">
   <h2><!-- @scffld name --></h2>
   <!-- @scffld-if includeStyle -->
@@ -96,7 +96,7 @@ JSON?
 
 Might need to do some kinda JSON5 -> JSON conversion thing so the output is valid...
 
-```json { filename: ${SCFFLD_PASCAL(name)}/${SCFFLD_KEBAB(name)}.json }
+```json { filename: '${ @scffld-pascal name }/${ @scffld-kebab name }.json' }
 {
   "title": "/* @scffld name */",
   /* @scffld-if includeStyle */
@@ -107,7 +107,7 @@ Might need to do some kinda JSON5 -> JSON conversion thing so the output is vali
 
 Python? I have no idea if any of this makes sense...
 
-```py { filename: ${SCFFLD_PASCAL(name)}/${SCFFLD_SNAKE(name)}.py }
+```py { filename: '${ @scffld-pascal name }/${ @scffld-snake name }.py' }
 ''' @scffld-if includeStyle '''
 import ''' @scffld-snake name '''
 ''' @scffld-endif '''
@@ -115,17 +115,9 @@ import ''' @scffld-snake name '''
 print("Hello ''' @scffld name '''")
 ```
 
-???
-
-```py { filename: ${SCFFLD_PASCAL(name)}/${SCFFLD_SNAKE(name)}.py }
-/* @scffld-if includeStyle */
-import /* @scffld-snake name */
-/* @scffld-endif */
-
-print("Hello /* @scffld name */")
-```
-
 ## Example output
+
+This code block will be ignored
 
 ```sh
 scffld examples/react-component --name="My Awesome Component"

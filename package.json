@@ -2,17 +2,35 @@
   "name": "scffld",
   "version": "0.0.0",
   "description": "Markdown based code scaffolding",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
+  "bin": {
+    "scffld": "./dist/cli.js"
+  },
+  "type": "module",
   "scripts": {
     "build": "tsc",
-    "pretest": "pnpm build",
-    "test": "node ./dist/main.js"
+    "prestart": "pnpm build",
+    "start": "npm link && scffld",
+    "clean": "rm -rf demo-src"
   },
   "keywords": [],
   "author": "Lindsay Evans <linz@linz.id.au>",
   "license": "MIT",
   "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74",
   "devDependencies": {
+    "@types/figlet": "^1.5.8",
+    "@types/markdown-it": "^14.1.1",
+    "@types/node": "^20.14.7",
     "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "change-case": "^5.4.4",
+    "commander": "^12.1.0",
+    "figlet": "^1.7.0",
+    "inquirer": "^9.2.23",
+    "markdown-it": "^14.1.0",
+    "ora": "^8.0.1",
+    "yaml": "^2.4.5"
   }
 }

@@ -1,4 +1,6 @@
 ```sh
 pnpm build
-pnpm test -- examples/react-component --name="My Awesome Component" --includeStyle=false
+npm link
+pnpm start examples/simple --name="My Simple Component" --includeStyle=false
+pnpm start examples/react-component --name="My React Component" --includeStyle=false
 ```
