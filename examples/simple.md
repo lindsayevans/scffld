@@ -81,3 +81,18 @@ includeStyle: <!-- @scffld includeStyle --></pre>
   <!-- @scffld-endif -->
 </div>
 ```
+
+```html { filename: '${ @scffld-pascal name }/${ @scffld-kebab name }-else.html' }
+<div class="<!-- @scffld-kebab name -->">
+  <!-- @scffld-if yeah -->
+  <p>yeah1</p>
+  <!-- @scffld-else -->
+  <p>nah1</p>
+  <!-- @scffld-endif -->
+  <!-- @scffld-if nah -->
+  <p>nah2</p>
+  <!-- @scffld-else -->
+  <p>yeah2</p>
+  <!-- @scffld-endif -->
+</div>
+```

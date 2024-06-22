@@ -132,6 +132,7 @@ export const parseConditionals = (
 ) => {
   const directiveCommentStart = getDirectiveCommentStart(fileType);
   const directiveCommentEnd = getDirectiveCommentEnd(fileType);
+
   const startIfRegex = new RegExp(
     `${directiveCommentStart}${DIRECTIVE_PREFIX}-if ([\\w]*)${directiveCommentEnd}`,
     'gi'
@@ -143,6 +144,7 @@ export const parseConditionals = (
   );
   const directiveCommentEndUnescaped = getDirectiveCommentEnd(fileType, false);
   const endIfString = `${directiveCommentStartUnescaped}${DIRECTIVE_PREFIX}-endif${directiveCommentEndUnescaped}`;
+  const elseString = `${directiveCommentStartUnescaped}${DIRECTIVE_PREFIX}-else${directiveCommentEndUnescaped}`;
 
   // Find opening if tags
   let match = startIfRegex.exec(fileContent);
@@ -153,20 +155,37 @@ export const parseConditionals = (
       const conditionMatches = !!params.options[condition];
 
       //   Find next closing tag
-      const endIndex = fileContent.indexOf(endIfString);
+      let endIndex = fileContent.indexOf(endIfString);
+      let endLength = endIfString.length;
+
+      const elseIndex = fileContent.indexOf(elseString);
+
       if (conditionMatches) {
         //   If condition, strip tags
+        if (elseIndex !== -1 && elseIndex < endIndex) {
+          endLength = endIndex - elseIndex + endIfString.length;
+          endIndex = elseIndex;
+        }
         fileContent =
           fileContent.substring(0, match.index) +
           fileContent.substring(match.index + match[0].length, endIndex) +
-          fileContent.substring(endIndex + endIfString.length);
+          fileContent.substring(endIndex + endLength);
       } else {
         //   If !condition, strip tags + content
-        fileContent =
-          fileContent.substring(0, match.index) +
-          fileContent.substring(endIndex + endIfString.length);
+        if (elseIndex === -1) {
+          fileContent =
+            fileContent.substring(0, match.index) +
+            fileContent.substring(endIndex + endLength);
+        } else {
+          fileContent =
+            fileContent.substring(0, match.index) +
+            fileContent.substring(elseIndex + elseString.length, endIndex) +
+            fileContent.substring(endIndex + endLength);
+        }
       }
-      match = match = startIfRegex.exec(fileContent);
+
+      startIfRegex.lastIndex = 0;
+      match = startIfRegex.exec(fileContent);
     }
   }
 
