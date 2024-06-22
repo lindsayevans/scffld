@@ -5,11 +5,18 @@
 ```sh
 pnpm version prerelease --preid=next
 pnpm build
-pnpm publish --access public --tag next
+pnpm publish --no-git-checks --access public --tag next
 ```
 
 ## Production
 
+```sh
+pnpm version minor
+pnpm build
+pnpm publish --no-git-checks --access public
+```
+
+TODO:
 Create new release in git-flow
 
 Bump version in `package.json`
