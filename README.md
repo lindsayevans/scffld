@@ -25,3 +25,11 @@ npx @querc/scffld examples/simple --name="My Awesome Component"
 ```sh
 npx @querc/scffld examples/simple --name="My Awesome Component" --includeStyle=false --yeah=false --nah=true
 ```
+
+## TODO
+
+- [ ] Check if it works on Windows
+- [ ] else/elseif conditionals
+- [ ] Nested conditionals
+- [ ] Export API
+- [ ] Tests
