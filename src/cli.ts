@@ -7,22 +7,22 @@ import markdownit from 'markdown-it';
 import YAML from 'yaml';
 import figlet from 'figlet';
 import ora from 'ora';
-
-import packageJson from '../package.json' assert { type: 'json' };
-
-import { renderCodeblocks } from './renderCodeblocks.js';
 import chalk from 'chalk';
 
+import { renderCodeblocks } from './renderCodeblocks.js';
+
 const startTime = new Date();
+
+const version = process.env.npm_package_version;
 
 console.log(
   chalk.hex('#008080')(figlet.textSync('scffld', { font: 'Doom' })) +
     ' ' +
-    chalk.bold.hex('#fa8072	')(`v${packageJson.version}`)
+    chalk.bold.hex('#fa8072	')(`v${version}`)
 );
 
 program
-  .version(packageJson.version)
+  .version(version || '0.0.0')
   .description('scffld')
   .arguments('<template>')
   .allowUnknownOption()
