@@ -1,6 +1,6 @@
 {
   "name": "@querc/scffld",
-  "version": "0.0.1-next.2",
+  "version": "0.1.0",
   "description": "Markdown based code scaffolding",
   "main": "dist/index.js",
   "bin": {
