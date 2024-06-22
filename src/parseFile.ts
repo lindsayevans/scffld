@@ -1,4 +1,5 @@
 import path from 'node:path';
+import JSON5 from 'json5';
 
 import {
   camelCase,
@@ -76,7 +77,7 @@ export const parseFile = (
     );
   }
 
-  return fileContent
+  fileContent = fileContent
     .replace(rawRegex, (m, ...s) => params.options[s[0] || ''])
     .replace(replaceRegex, (m, ...s) => {
       const method = replaceMethods[s[0].trim()];
@@ -88,6 +89,12 @@ export const parseFile = (
 
       return '';
     });
+
+  if (fileType === 'json') {
+    fileContent = JSON.stringify(JSON5.parse(fileContent));
+  }
+
+  return fileContent;
 };
 
 const getDirectiveCommentStart = (type: string, escape = true) => {
