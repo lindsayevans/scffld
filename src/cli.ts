@@ -2,6 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { createRequire } from 'node:module';
 import { Option, program } from 'commander';
 import markdownit from 'markdown-it';
 import YAML from 'yaml';
@@ -13,7 +14,7 @@ import { renderCodeblocks } from './renderCodeblocks.js';
 
 const startTime = new Date();
 
-const version = process.env.npm_package_version;
+const { version } = createRequire(import.meta.url)('../package.json');
 
 console.log(
   chalk.hex('#008080')(figlet.textSync('scffld', { font: 'Doom' })) +
