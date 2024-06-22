@@ -104,6 +104,7 @@ const getDirectiveCommentStart = (type: string, escape = true) => {
     case 'html':
     case 'svg':
     case 'xml':
+    case 'md':
       return '<!-- ';
     case 'cfm':
     case 'cfml':
@@ -122,6 +123,7 @@ const getDirectiveCommentEnd = (type: string, escape = true) => {
     case 'html':
     case 'svg':
     case 'xml':
+    case 'md':
       return ' -->';
     case 'cfm':
     case 'cfml':
