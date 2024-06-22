@@ -99,6 +99,10 @@ export const parseFile = (
     fileContent = JSON.stringify(JSON5.parse(fileContent));
   }
 
+  if (fileType === 'base64') {
+    fileContent = atob(fileContent);
+  }
+
   return fileContent;
 };
 

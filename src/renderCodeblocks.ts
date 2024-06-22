@@ -38,7 +38,11 @@ export const renderCodeblocks = (
       renderedPath
     );
 
-    writeFile((params.outputDirectory || '') + renderedPath, renderedFile);
+    writeFile(
+      (params.outputDirectory || '') + renderedPath,
+      renderedFile,
+      type
+    );
     count++;
   });
 
