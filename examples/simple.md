@@ -7,6 +7,7 @@ props:
   includeStyle:
     type: boolean
     default: true
+    description: Include CSS files
   yeah:
     type: boolean
     default: true

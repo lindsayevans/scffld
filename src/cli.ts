@@ -88,6 +88,7 @@ const main = async () => {
     if (fmParsed.props) {
       Object.keys(fmParsed.props).forEach((name: string) => {
         const option = new Option(`--${name}`);
+        option.description = fmParsed.props[name].description;
         option.required = fmParsed.props[name].required || false;
         option.optional = !option.required;
         option.defaultValue = fmParsed.props[name].default;
