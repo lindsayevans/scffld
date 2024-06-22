@@ -12,6 +12,14 @@ Yeoman etc. seem old & unmaintained, plus I woke up at 3am & was bored
 
 ## How?
 
+### Remote template
+
+```sh
+npx @querc/scffld github:lindsayevans/scffld/examples/simple --name="My Awesome Component"
+```
+
+### Local template
+
 1. Grab one of the [example files](./examples) & save it locally
 2. Run this command, replacing `examples/simple` with your example file
 
