@@ -1,5 +1,7 @@
 # scffld
 
+[![NPM Version](https://img.shields.io/npm/v/%40querc%2Fscffld)](https://www.npmjs.com/package/@querc/scffld)
+
 ## What?
 
 (possibly dumb idea for) Markdown based code scaffolding
@@ -10,10 +12,16 @@ Yeoman etc. seem old & unmaintained, plus I woke up at 3am & was bored
 
 ## How?
 
-Nothing functional yet, but something along the lines of:
+1. Grab one of the [example files](./examples) & save it locally
+2. Run this command, replacing `examples/simple` with your example file
 
 ```sh
-scffld examples/react-component --name="My Awesome Component" --includeStyle=false
+npx @querc/scffld examples/simple --name="My Awesome Component"
 ```
 
-would walk through all of the code blocks in [examples/react-component.md](./examples/react-component.md), replacing specially formatted comments with props & output a file for each
+3. Created files will be in `demo-src`
+4. Try it out with a few options different to the defaults:
+
+```sh
+npx @querc/scffld examples/simple --name="My Awesome Component" --includeStyle=false --yeah=false --nah=true
+```
