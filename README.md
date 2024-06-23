@@ -1,19 +1,35 @@
 # scffld
 
-## What?
+[![NPM Version](https://img.shields.io/npm/v/%40querc%2Fscffld)](https://www.npmjs.com/package/@querc/scffld)
 
-(possibly dumb idea for) Markdown based code scaffolding
+Simple code scaffolding tool utilising a single Markdown file to define templates & properties.
 
 ## Why?
 
-Yeoman etc. seem old & unmaintained, plus I woke up at 3am & was bored
+I wanted something that was a bit less complex than full-blown code generation tools like Yeoman, Angular Schematics etc.
 
-## How?
+## Usage
 
-Nothing functional yet, but something along the lines of:
+Requires [NodeJS](https://nodejs.org/) 18+.
+
+### Quickstart
 
 ```sh
-scffld examples/react-component --name="My Awesome Component" --includeStyle=false
+npx @querc/scffld@latest github:lindsayevans/scffld/examples/simple \
+    --name="My Awesome Component" \
+    -o ./my-project/src/
 ```
 
-would walk through all of the code blocks in [examples/react-component.md](./examples/react-component.md), replacing specially formatted comments with props & output a file for each
+Files will be created in `my-project/src`
+
+<img src="./docs/quickstart-screen.png" width="680" alt="Example of command output" />
+
+See [docs/usage.md](./docs/usage.md) for more details or check out the [example templates](./examples/).
+
+## TODO
+
+- [ ] Check if it works on Windows
+- [ ] ~~else~~/elseif conditionals
+- [ ] Nested conditionals
+- [x] Export API
+- [ ] Tests
