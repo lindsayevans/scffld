@@ -17,23 +17,21 @@ import {
 
 const DIRECTIVE_PREFIX = '@scffld';
 
-export const parseFile = (
+export const renderTemplateBlock = (
   fileType: string,
   fileContent: string,
   params: any,
   renderedPath?: string
 ) => {
   const relativeRoot = () => {
-    const outputDirectory =
-      params.options.outputDirectory || params.outputDirectory || '';
-    const resolvedOutputDirectory = path.resolve(outputDirectory);
-    const resolvedFileDirectory = path.dirname(
-      path.resolve(outputDirectory + renderedPath)
-    );
-    const relativePath =
-      path.relative(resolvedFileDirectory, resolvedOutputDirectory) + path.sep;
+    if (renderedPath) {
+      const dirCount = renderedPath.split('/').length - 1;
+      const relativePath =
+        new Array(dirCount).fill('..').join(path.sep) + path.sep;
+      return relativePath;
+    }
 
-    return relativePath;
+    return '';
   };
 
   const outputDirectory = () => {
@@ -75,12 +73,7 @@ export const parseFile = (
   );
 
   if (fileType !== 'path') {
-    fileContent = parseConditionals(
-      fileType,
-      fileContent,
-      params,
-      renderedPath
-    );
+    fileContent = parseConditionals(fileType, fileContent, params);
   }
 
   fileContent = fileContent
@@ -148,8 +141,7 @@ const getDirectiveCommentEnd = (type: string, escape = true) => {
 export const parseConditionals = (
   fileType: string,
   fileContent: string,
-  params: any,
-  renderedPath?: string
+  params: any
 ) => {
   const directiveCommentStart = getDirectiveCommentStart(fileType);
   const directiveCommentEnd = getDirectiveCommentEnd(fileType);

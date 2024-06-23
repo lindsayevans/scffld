@@ -2,9 +2,9 @@ import markdownit from 'markdown-it';
 import terminal from 'markdown-it-terminal';
 import styles from 'ansi-styles';
 
-import { parseFile } from './parseFile.js';
+import { renderTemplateBlock } from '../lib/renderTemplateBlock.js';
 
-export const outputMessage = (message: string, params: any) => {
+export const renderMessage = (message: string, params: any) => {
   const md = markdownit();
   md.use(terminal, {
     styleOptions: {
@@ -13,8 +13,8 @@ export const outputMessage = (message: string, params: any) => {
     },
   });
 
-  const parsedMessage = parseFile('md', message, params);
+  const parsedMessage = renderTemplateBlock('md', message, params);
   const renderedMessage = md.render(parsedMessage, {});
 
-  console.log(renderedMessage);
+  return renderedMessage;
 };

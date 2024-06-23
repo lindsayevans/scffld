@@ -1,7 +1,7 @@
 ```sh
 pnpm build
 npm link
-pnpm start examples/simple --name="My Simple Component" --includeStyle=false
+pnpm start examples/simple --name="My Simple Component" --includeStyle=false --yeah=false --nah=true
 pnpm start examples/web-app --name="My Web Site"
 pnpm start examples/web-app --name="My Web Site" --outputDirectory=./foo/src/
 pnpm start examples/web-app --name="My Web Site" -o ./bar/src/

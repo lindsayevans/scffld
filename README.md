@@ -53,5 +53,5 @@ npx @querc/scffld examples/simple --help
 - [ ] Check if it works on Windows
 - [ ] ~~else~~/elseif conditionals
 - [ ] Nested conditionals
-- [ ] Export API
+- [x] Export API
 - [ ] Tests
