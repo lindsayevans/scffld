@@ -1,7 +1,7 @@
 {
   "name": "@querc/scffld",
   "version": "0.13.1",
-  "description": "Markdown based code scaffolding",
+  "description": "Simple code scaffolding tool using a Markdown file to define templates & properties",
   "main": "dist/index.js",
   "bin": {
     "scffld": "./dist/cli.js"
