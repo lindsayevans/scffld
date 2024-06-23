@@ -2,17 +2,17 @@
 
 [![NPM Version](https://img.shields.io/npm/v/%40querc%2Fscffld)](https://www.npmjs.com/package/@querc/scffld)
 
-## What?
-
-(possibly dumb idea for) Markdown based code scaffolding
+Simple code scaffolding tool utilising a single Markdown file to define templates & properties.
 
 ## Why?
 
-I wanted something that was a bit less complicated than Yeoman et al.
+I wanted something that was a bit less complex than full-blown code generation tools like Yeoman, Angular Schematics etc.
 
-## How?
+## Usage
 
-### Remote template
+Requires a recent version of [NodeJS](https://nodejs.org/).
+
+### Quickstart
 
 ```sh
 npx @querc/scffld@latest github:lindsayevans/scffld/examples/simple \
@@ -20,33 +20,9 @@ npx @querc/scffld@latest github:lindsayevans/scffld/examples/simple \
     -o ./my-project/src/
 ```
 
-### Local template
+Files will be created in `my-project/src`
 
-1. Grab one of the [example files](./examples) & save it locally
-2. Run this command, replacing `examples/simple` with your example file
-
-```sh
-npx @querc/scffld examples/simple \
-    --name="My Awesome Component" \
-    -o ./my-project/src/
-```
-
-Created files will be in `my-project/src`
-
-Try it out with a few options different to the defaults:
-
-```sh
-npx @querc/scffld examples/simple \
-    --name="My Awesome Component" \
-    -o ./my-project/src/ \
-    --includeStyle=false --yeah=false --nah=true
-```
-
-Show supported potions for the template
-
-```sh
-npx @querc/scffld examples/simple --help
-```
+See [docs/usage.md](./docs/usage.md) for more details or check out the [example templates](./examples/).
 
 ## TODO
 
