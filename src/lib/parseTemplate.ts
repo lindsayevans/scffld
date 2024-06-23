@@ -3,6 +3,7 @@ import YAML from 'yaml';
 
 import { TemplateFile, TemplateParams } from './types.js';
 import { renderTemplateBlock } from './renderTemplateBlock.js';
+import { getOutputDirectory } from './getOutputDirectory.js';
 
 export const parseTemplate = (
   templateContent: string,
@@ -49,9 +50,7 @@ export const parseTemplate = (
 
       return {
         type,
-        filename:
-          (params.options?.outputDirectory || params.outputDirectory || '') +
-          renderedPath,
+        filename: getOutputDirectory(params) + renderedPath,
         content: renderedFile,
       };
     })

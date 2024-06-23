@@ -1,6 +1,5 @@
 import path from 'node:path';
 import JSON5 from 'json5';
-
 import {
   camelCase,
   capitalCase,
@@ -14,6 +13,8 @@ import {
   snakeCase,
   trainCase,
 } from 'change-case';
+
+import { getOutputDirectory } from './getOutputDirectory.js';
 
 const DIRECTIVE_PREFIX = '@scffld';
 
@@ -34,9 +35,7 @@ export const renderTemplateBlock = (
     return '';
   };
 
-  const outputDirectory = () => {
-    return params.options.outputDirectory || params.outputDirectory || '';
-  };
+  const outputDirectory = () => getOutputDirectory(params);
 
   const upperCase = (s: string) => s.toUpperCase();
   const lowerCase = (s: string) => s.toLowerCase();
