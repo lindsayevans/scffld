@@ -15,6 +15,7 @@ export const processTemplate = (
   const files = parseTemplate(templateContent, params);
   const outputDirectory = getOutputDirectory(params);
 
+  // TODO: How to handle no files?
   files.forEach((file) => {
     writeFile(file);
   });

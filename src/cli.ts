@@ -38,7 +38,7 @@ const main = async () => {
   if (!template || template.startsWith('-')) {
     program.help();
   } else {
-    const templateContent = await loadTemplate(template);
+    templateContent = await loadTemplate(template);
 
     if (!templateContent || templateContent === '') {
       console.error('No template content :(');
@@ -50,6 +50,7 @@ const main = async () => {
   }
 
   program.action((template, options) => {
+    // console.log(template, options);
     params = populateTemplateOptions(params, options);
   });
 
