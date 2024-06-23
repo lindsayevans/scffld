@@ -10,7 +10,7 @@ I wanted something that was a bit less complex than full-blown code generation t
 
 ## Usage
 
-Requires a recent version of [NodeJS](https://nodejs.org/).
+Requires [NodeJS](https://nodejs.org/) 18+.
 
 ### Quickstart
 
