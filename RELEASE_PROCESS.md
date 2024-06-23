@@ -11,7 +11,7 @@ pnpm publish --no-git-checks --access public --tag next
 ## Production
 
 ```sh
-pnpm version minor
+pnpm version patch
 pnpm build
 pnpm publish --no-git-checks --access public
 ```
