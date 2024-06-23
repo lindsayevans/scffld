@@ -56,6 +56,7 @@ scffld template-name --myProperty="foo"
 | `type`        | Currently only `string` & `boolean` are allowed              |
 | `required`    | User must supply a value                                     |
 | `default`     | Default value if not supplied                                |
+| `shortName`   | Shortened option name                                        |
 | `description` | Description of the property<br>Displayed when using `--help` |
 
 ## File blocks

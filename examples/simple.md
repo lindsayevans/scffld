@@ -4,15 +4,18 @@ props:
   name:
     type: string
     required: true
+    shortName: N
   includeStyle:
     type: boolean
     default: true
     description: Include CSS files
   yeah:
     type: boolean
+    shortName: y
     default: true
   nah:
     type: boolean
+    shortName: n
     default: false
 ---
 

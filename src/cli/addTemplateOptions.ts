@@ -5,7 +5,7 @@ export const addTemplateOptions = (
   program: Command,
   params: TemplateParams
 ) => {
-  const outputDirOption = new Option('-o --outputDirectory');
+  const outputDirOption = new Option('-o, --outputDirectory');
   outputDirOption.required = false;
   outputDirOption.optional = true;
   program.addOption(outputDirOption);
@@ -14,7 +14,9 @@ export const addTemplateOptions = (
     Object.keys(params.props).forEach((name: string) => {
       if (params.props && params.props[name]) {
         const prop = params.props[name];
-        const option = new Option(`--${name}`);
+        const option = new Option(
+          `${prop.shortName ? `-${prop.shortName}, ` : ''}--${name}`
+        );
 
         option.required = prop.required || false;
         option.optional = !option.required;
