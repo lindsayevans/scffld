@@ -12,6 +12,7 @@ import { addTemplateOptions } from './cli/addTemplateOptions.js';
 import { populateTemplateOptions } from './lib/populateTemplateOptions.js';
 import { processTemplate } from './cli/processTemplate.js';
 import { TemplateParams } from './lib/types.js';
+import { checkRequiredOptions } from './cli/checkRequiredOptions.js';
 
 const startTime = new Date();
 
@@ -49,19 +50,21 @@ const main = async () => {
     addTemplateOptions(program, params);
   }
 
-  program.action((template, options) => {
-    // console.log(template, options);
+  let optionsOkay = true;
+  program.action(async (template, options) => {
+    // console.log(template, options, params);
+    optionsOkay = await checkRequiredOptions(params, options);
     params = populateTemplateOptions(params, options);
+
+    if (optionsOkay && params !== undefined && params.options) {
+      console.log('');
+      const spinner = ora(`Scaffolding template ${template}...`).start();
+
+      processTemplate(templateContent, params, spinner, startTime);
+    }
   });
 
   program.parse(process.argv);
-
-  if (params !== undefined && params.options) {
-    console.log('');
-    const spinner = ora(`Scaffolding template ${template}...`).start();
-
-    processTemplate(templateContent, params, spinner, startTime);
-  }
 };
 
 main();
