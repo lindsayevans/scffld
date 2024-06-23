@@ -25,11 +25,3 @@ jobs:
       - run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: v${{ steps.package-version.outputs.current-version }}
-          tag_name: v${{ steps.package-version.outputs.current-version }}
-          draft: false
-          prerelease: false
