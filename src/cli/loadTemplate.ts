@@ -16,10 +16,18 @@ export const loadTemplate = async (templateName: string): Promise<string> => {
     let url = templateName;
 
     if (templateName.startsWith('github:')) {
+      let revision = 'HEAD';
+      const revisionMatch = templateName.match(/@([^\/]*)/i);
+      if (revisionMatch) {
+        revision = revisionMatch[1];
+        templateName = templateName.replace(revisionMatch[0], '');
+      }
+
       const parts = templateName.replace('github:', '').split('/');
+
       url = `https://raw.githubusercontent.com/${parts[0]}/${
         parts[1]
-      }/HEAD/${parts.slice(2).join('/')}${
+      }/${revision}/${parts.slice(2).join('/')}${
         templateName.endsWith('.md') ? '' : '.md'
       }`;
     }

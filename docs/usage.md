@@ -69,6 +69,13 @@ npx @querc/scffld github:lindsayevans/scffld/examples/simple \
     --name="My Remote Component"
 ```
 
+and with a specific commit/tag/branch:
+
+```sh
+npx @querc/scffld github:lindsayevans/scffld/examples/simple@v0.11.0 \
+    --name="My Remote Component"
+```
+
 ## Common options
 
 | Option                   | Details                                                                                                   |
