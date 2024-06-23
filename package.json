@@ -32,6 +32,7 @@
     "@gmrchk/cli-testing-library": "^0.1.2",
     "@jest/globals": "^29.7.0",
     "@types/figlet": "^1.5.8",
+    "@types/inquirer": "^9.0.7",
     "@types/jest": "^29.5.12",
     "@types/markdown-it": "^14.1.1",
     "@types/node": "^20.14.7",

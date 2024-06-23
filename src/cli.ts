@@ -50,13 +50,12 @@ const main = async () => {
     addTemplateOptions(program, params);
   }
 
-  let optionsOkay = true;
   program.action(async (template, options) => {
     // console.log(template, options, params);
-    optionsOkay = await checkRequiredOptions(params, options);
+    options = await checkRequiredOptions(params, options);
     params = populateTemplateOptions(params, options);
 
-    if (optionsOkay && params !== undefined && params.options) {
+    if (params !== undefined && params.options) {
       console.log('');
       const spinner = ora(`Scaffolding template ${template}...`).start();
 

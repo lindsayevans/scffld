@@ -53,6 +53,12 @@ npx @querc/scffld examples/simple \
     -o ./my-project/src/
 ```
 
+or leave out all options to be prompted for them:
+
+```sh
+npx @querc/scffld examples/simple
+```
+
 ## Remote templates
 
 Templates can be loaded from a remote URL:
