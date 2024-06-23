@@ -1,7 +1,7 @@
 name: Publish Package to npmjs
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
 
 jobs:
   build:
@@ -24,6 +24,6 @@ jobs:
       - run: npm link
       - run: pnpm test
 
-      - run: pnpm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - run: pnpm publish --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
