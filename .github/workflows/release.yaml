@@ -22,7 +22,8 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: npm link
-      - run: pnpm test
+      - run: pnpm test:unit
+      - run: pnpm test:integration
 
       - run: pnpm publish --access public
         env:

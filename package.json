@@ -9,7 +9,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test": "jest",
+    "test:unit": "jest --testMatch='<rootDir>/src/**/*.test.ts'",
+    "test:integration": "jest --testMatch='<rootDir>/tests/integration/**/*.ts'",
     "test:cli": "scffld examples/kitchen-sink --name=test && scffld examples/simple --name=test",
     "prestart": "pnpm build",
     "start": "npm link && scffld",
