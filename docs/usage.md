@@ -90,3 +90,4 @@ npx @querc/scffld github:lindsayevans/scffld/examples/simple@v0.11.0 \
 | ------------------------ | --------------------------------------------------------------------------------------------------------- |
 | `-h` `--help`            | Show available options for the template                                                                   |
 | `-o` `--outputDirectory` | Base directory where files should be written<br>Defaults to the `outputDirectory` defined in the template |
+| `--overwrite`            | `true`: overwrite existing files<br>`false`: exit instead of overwriting                                  |
