@@ -3,9 +3,7 @@
   "version": "0.13.2",
   "description": "Simple code scaffolding tool using a Markdown file to define templates & properties",
   "main": "dist/index.js",
-  "bin": {
-    "scffld": "./dist/cli.js"
-  },
+  "bin": "./dist/cli.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
