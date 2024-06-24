@@ -12,9 +12,11 @@ npx @querc/scffld github:lindsayevans/scffld/examples/simple \
     -o ./my-project/src/
 ```
 
+(Windows users will need to remove `\` and put everything on one line)
+
 Files will be created in `my-project/src`
 
-<img src="./quickstart-screen.png" width="680" alt="Example of command output" />
+![Example of command output](./screenshot.svg)
 
 ## Syntax
 
@@ -53,6 +55,12 @@ npx @querc/scffld examples/simple \
     -o ./my-project/src/
 ```
 
+or leave out all options to be prompted for them:
+
+```sh
+npx @querc/scffld examples/simple
+```
+
 ## Remote templates
 
 Templates can be loaded from a remote URL:
@@ -66,6 +74,13 @@ or from GitHub:
 
 ```sh
 npx @querc/scffld github:lindsayevans/scffld/examples/simple \
+    --name="My Remote Component"
+```
+
+and with a specific commit/tag/branch:
+
+```sh
+npx @querc/scffld github:lindsayevans/scffld/examples/simple@v0.11.0 \
     --name="My Remote Component"
 ```
 

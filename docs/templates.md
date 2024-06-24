@@ -59,6 +59,15 @@ scffld template-name --myProperty="foo"
 | `shortName`   | Shortened option name                                        |
 | `description` | Description of the property<br>Displayed when using `--help` |
 
+### Reserved property names
+
+| Name              | Short name |
+| ----------------- | ---------- |
+| `overwrite`       |            |
+| `outputDirectory` | `o`        |
+| `version`         | `V`        |
+| `help`            | `h`        |
+
 ## File blocks
 
 Markdown fenced code blocks define the template for each file.

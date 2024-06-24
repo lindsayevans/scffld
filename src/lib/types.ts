@@ -3,6 +3,7 @@ export type TemplatePropType = string | boolean;
 export type TemplateProps = Record<
   string,
   {
+    prompt?: string;
     shortName?: string;
     type?: string;
     required?: boolean;

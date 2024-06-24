@@ -22,7 +22,7 @@ npx @querc/scffld@latest github:lindsayevans/scffld/examples/simple \
 
 Files will be created in `my-project/src`
 
-<img src="./docs/quickstart-screen.png" width="680" alt="Example of command output" />
+![Example of command output](./docs/screenshot.svg)
 
 See [docs/usage.md](./docs/usage.md) for more details or check out the [example templates](./examples/).
 

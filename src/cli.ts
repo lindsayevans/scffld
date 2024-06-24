@@ -11,48 +11,59 @@ import { getTemplateParams } from './lib/getTemplateParams.js';
 import { addTemplateOptions } from './cli/addTemplateOptions.js';
 import { populateTemplateOptions } from './lib/populateTemplateOptions.js';
 import { processTemplate } from './cli/processTemplate.js';
+import { TemplateParams } from './lib/types.js';
+import { checkRequiredOptions } from './cli/checkRequiredOptions.js';
 
 const startTime = new Date();
 
 const { version } = createRequire(import.meta.url)('../package.json');
 
 console.log(
-  chalk.hex('#008080')(figlet.textSync('scffld', { font: 'Doom' })) +
+  chalk.cyan(figlet.textSync('scffld', { font: 'Ogre' })) +
     ' ' +
-    chalk.bold.hex('#fa8072	')(`v${version}`)
+    chalk.bold.green(`v${version}`)
 );
 
 program
   .version(version || '0.0.0')
   .description('scffld')
   .arguments('<template>')
-  .allowUnknownOption()
-  .allowExcessArguments();
+  .usage('<template> [options]')
+  .allowUnknownOption();
 
 const main = async () => {
   const template = process.argv[2];
-  const templateContent = await loadTemplate(template);
+  let params: TemplateParams = {};
+  let templateContent = '';
 
-  if (!templateContent || templateContent === '') {
-    console.error('No template content :(');
-    process.exit(1);
+  if (!template || template.startsWith('-')) {
+    program.help();
+  } else {
+    templateContent = await loadTemplate(template);
+
+    if (!templateContent || templateContent === '') {
+      console.error('No template content :(');
+      process.exit(1);
+    }
+
+    params = getTemplateParams(templateContent);
+    addTemplateOptions(program, params);
   }
 
-  let params = getTemplateParams(templateContent);
-  addTemplateOptions(program, params);
-
-  program.action((template, options) => {
+  program.action(async (template, options) => {
+    // console.log(template, options, params);
+    options = await checkRequiredOptions(params, options);
     params = populateTemplateOptions(params, options);
+
+    if (params !== undefined && params.options) {
+      console.log('');
+      const spinner = ora(`Scaffolding template ${template}...`).start();
+
+      await processTemplate(templateContent, params, spinner, startTime);
+    }
   });
 
   program.parse(process.argv);
-
-  if (params && params.options) {
-    console.log('');
-    const spinner = ora(`Scaffolding template ${template}...`).start();
-
-    processTemplate(templateContent, params, spinner, startTime);
-  }
 };
 
 main();
