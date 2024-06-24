@@ -5,48 +5,39 @@ props:
   name:
     type: string
     required: true
+    shortName: N
   includeStyle:
     type: boolean
     default: true
+  yeah:
+    type: boolean
+    shortName: y
+    default: true
+  nah:
+    type: boolean
+    shortName: n
+    default: false
   appRoot:
     type: string
     default: '@app/'
-# Hooks?
-hooks:
-  afterWrite: applyPrettier
+postInstallMessage: |
+  ___
+  # Your web app '<!-- @scffld name -->' has been created!
+  \
+  To get started, run the following commands:
+  ```sh
+  cd <!-- @scffld-outputDirectory -->
+  npm i
+  npm start
+  ```
+
+# hooks:
+#   afterWrite: applyPrettier
 ---
 
 # scffld template for React Functional Component with SCSS
 
 Anything outside code blocks can be used for documentation etc.
-
-Could probably use any of the methods from [change-case](https://www.npmjs.com/package/change-case) as output directives.
-
-## File path directives
-
-- `${SCFFLD(propName)}`
-- `${ @scffld-kebab propName }`
-- `${ @scffld-pascal propName }`
-- ...
-
-## Output directives
-
-- `/* @scffld propName */`
-- `/* @scffld-kebab propName */`
-- `/* @scffld-pascal propName */`
-- ...
-
-### Conditional directives
-
-- `/* @scffld-if propName */`
-- `/* @scffld-else */`
-- `/* @scffld-elseif propName */`
-- `/* @scffld-endif */`
-- ...
-
-JS/CSS/C#/Java and so on use C-style multiline comments for directives.
-
-Probably ignore any code blocks that don't have `{ filename: ...}`
 
 ```tsx { filename: '${ @scffld-pascal name }/${ @scffld-pascal name }.tsx' }
 import React from 'react'
@@ -92,9 +83,7 @@ HTML, SVG etc. would need to use HTML-style comments
 </div>
 ```
 
-JSON?
-
-Might need to do some kinda JSON5 -> JSON conversion thing so the output is valid...
+JSON
 
 ```json { filename: '${ @scffld-pascal name }/${ @scffld-kebab name }.json' }
 {
@@ -120,6 +109,69 @@ CFML FTMFW
 ```cfm { filename: '${ @scffld-pascal name }/${ @scffld-snake name }.cfm' }
 <cfset message="<!--- @scffld name --->">
 <cfoutput>#message#</cfoutput>
+```
+
+Various directives
+
+```html { filename: '${ @scffld-pascal name }/${ @scffld-kebab name }-output-directives.html' }
+<div class="<!-- @scffld-kebab name -->">
+  <h2><!-- @scffld name --></h2>
+  <pre>Relative path to outputDirectory: <!-- @scffld-relativeRoot -->
+includeStyle: <!-- @scffld includeStyle --></pre>
+  <h3>Replace methods:</h3>
+  <dl>
+    <dt>upper:</dt>
+    <dd><!-- @scffld-upper name --></dd>
+    <dt>lower:</dt>
+    <dd><!-- @scffld-lower name --></dd>
+    <dt>camel:</dt>
+    <dd><!-- @scffld-camel name --></dd>
+    <dt>capital:</dt>
+    <dd><!-- @scffld-capital name --></dd>
+    <dt>constant:</dt>
+    <dd><!-- @scffld-constant name --></dd>
+    <dt>dot:</dt>
+    <dd><!-- @scffld-dot name --></dd>
+    <dt>kebab:</dt>
+    <dd><!-- @scffld-kebab name --></dd>
+    <dt>pascal:</dt>
+    <dd><!-- @scffld-pascal name --></dd>
+    <dt>pascalSnake:</dt>
+    <dd><!-- @scffld-pascalSnake name --></dd>
+    <dt>path:</dt>
+    <dd><!-- @scffld-path name --></dd>
+    <dt>sentence:</dt>
+    <dd><!-- @scffld-sentence name --></dd>
+    <dt>snake:</dt>
+    <dd><!-- @scffld-snake name --></dd>
+    <dt>train:</dt>
+    <dd><!-- @scffld-train name --></dd>
+  </dl>
+</div>
+```
+
+```html { filename: '${ @scffld-pascal name }/${ @scffld-kebab name }-conditional-directives.html' }
+<div class="<!-- @scffld-kebab name -->">
+  <!-- @scffld-if includeStyle -->
+  <link rel="stylesheet" href="<!-- @scffld-relativeRoot -->test.css" />
+  <!-- @scffld-endif -->
+  <!-- @scffld-if yeah -->
+  <p>yeah, nah</p>
+  <!-- @scffld-endif -->
+  <!-- @scffld-if nah -->
+  <p>nah, yeah</p>
+  <!-- @scffld-endif -->
+  <!-- @scffld-if yeah -->
+  <p>yeah1</p>
+  <!-- @scffld-else -->
+  <p>nah1</p>
+  <!-- @scffld-endif -->
+  <!-- @scffld-if nah -->
+  <p>nah2</p>
+  <!-- @scffld-else -->
+  <p>yeah2</p>
+  <!-- @scffld-endif -->
+</div>
 ```
 
 ## Example output
