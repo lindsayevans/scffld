@@ -19,9 +19,9 @@ const startTime = new Date();
 const { version } = createRequire(import.meta.url)('../package.json');
 
 console.log(
-  chalk.hex('#008080')(figlet.textSync('scffld', { font: 'Doom' })) +
+  chalk.cyan(figlet.textSync('scffld', { font: 'Ogre' })) +
     ' ' +
-    chalk.bold.hex('#fa8072')(`v${version}`)
+    chalk.bold.green(`v${version}`)
 );
 
 program
