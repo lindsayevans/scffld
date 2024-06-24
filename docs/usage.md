@@ -14,7 +14,7 @@ npx @querc/scffld github:lindsayevans/scffld/examples/simple \
 
 Files will be created in `my-project/src`
 
-<img src="./quickstart-screen.png" width="680" alt="Example of command output" />
+![Example of command output](./screenshot.svg)
 
 ## Syntax
 
