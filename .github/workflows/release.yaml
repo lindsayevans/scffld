@@ -28,8 +28,8 @@ jobs:
 
       - run: pnpm install
       - run: pnpm build
-      - run: pnpm test:unit
-      - run: pnpm test:integration
+      - run: pnpm test:unit --runInBand
+      - run: pnpm test:integration --runInBand
 
   release:
     runs-on: ubuntu-latest
