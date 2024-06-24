@@ -28,4 +28,44 @@ describe('sscffld', () => {
     },
     TIMEOUT
   );
+
+  it(
+    'should scaffold a remote template (URL)',
+    async () => {
+      const { execute, cleanup, makeDir, writeFile, ls, exists } =
+        await prepareEnvironment();
+
+      const { code, stderr, stdout } = await execute(
+        'scffld',
+        'https://raw.githubusercontent.com/lindsayevans/scffld/develop/examples/simple.md --name=test'
+      );
+
+      expect(code).toBe(0);
+      expect(stdout.join('\n')).toContain('Wrote 5 files in');
+      await expect(exists('./demo-src/simple/test.css')).resolves.toBe(true);
+
+      await cleanup();
+    },
+    TIMEOUT
+  );
+
+  it(
+    'should scaffold a remote template (GitHub)',
+    async () => {
+      const { execute, cleanup, makeDir, writeFile, ls, exists } =
+        await prepareEnvironment();
+
+      const { code, stderr, stdout } = await execute(
+        'scffld',
+        'github:lindsayevans/scffld/examples/simple --name=test'
+      );
+
+      expect(code).toBe(0);
+      expect(stdout.join('\n')).toContain('Wrote 5 files in');
+      await expect(exists('./demo-src/simple/test.css')).resolves.toBe(true);
+
+      await cleanup();
+    },
+    TIMEOUT
+  );
 });
