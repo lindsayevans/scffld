@@ -1,8 +1,6 @@
 import fs from 'node:fs';
 import { prepareEnvironment } from '@gmrchk/cli-testing-library';
 
-const TIMEOUT;
-
 describe('sscffld', () => {
   it('should scaffold the simple template', async () => {
     const { execute, cleanup, makeDir, writeFile, ls, exists } =
