@@ -32,10 +32,16 @@ export const checkRequiredOptions = async (
           if (params.props) {
             const prop = params.props[k];
             prompts.push({
-              type: prop.type === 'string' ? 'input' : 'confirm',
+              type:
+                prop.type === 'string'
+                  ? 'input'
+                  : prop.type === 'list'
+                  ? 'list'
+                  : 'confirm',
               name: k,
               message: prop.prompt || k,
               default: prop.default,
+              choices: prop.type === 'list' ? prop.options : undefined,
             });
           }
         });

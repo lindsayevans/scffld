@@ -4,6 +4,13 @@ props:
   name:
     type: string
     required: true
+  packageManager:
+    type: list
+    default: yarn
+    options:
+      - npm
+      - yarn
+      - pnpm
   includeStyle:
     type: boolean
     default: true
@@ -16,8 +23,8 @@ props:
 postInstallCommands:
   - echo "Hello ${ @scffld name }!"
   - git init
-  - npm install
-  - npm run prettier
+  - ${ @scffld packageManager } install
+  - ${ @scffld packageManager } run prettier
 postInstallMessage: |
   ___
   # Your web app '<!-- @scffld name -->' has been created!
