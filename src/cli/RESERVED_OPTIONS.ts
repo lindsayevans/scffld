@@ -1,4 +1,4 @@
 export const RESERVED_OPTIONS = {
-  long: ['outputDirectory', 'version', 'help'],
+  long: ['outputDirectory', 'overwrite', 'version', 'help'],
   short: ['o', 'V', 'h'],
 };

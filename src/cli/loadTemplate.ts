@@ -34,7 +34,7 @@ export const loadTemplate = async (templateName: string): Promise<string> => {
 
     const response = await fetch(url);
     templateContent = await response.text();
-    fetchSpinner.stopAndPersist({ symbol: '✅' });
+    fetchSpinner.succeed();
   } else {
     // Local template
     templateContent = fs

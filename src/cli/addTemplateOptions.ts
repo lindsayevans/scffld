@@ -11,6 +11,12 @@ export const addTemplateOptions = (
   outputDirOption.required = false;
   outputDirOption.optional = true;
   program.addOption(outputDirOption);
+  const overwriteOption = new Option('--overwrite');
+  overwriteOption.required = false;
+  overwriteOption.optional = true;
+  // @ts-expect-error
+  overwriteOption.parseArg = (value: string) => value === 'true';
+  program.addOption(overwriteOption);
 
   if (params.props) {
     Object.keys(params.props).forEach((name: string) => {

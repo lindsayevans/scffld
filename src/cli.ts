@@ -59,7 +59,7 @@ const main = async () => {
       console.log('');
       const spinner = ora(`Scaffolding template ${template}...`).start();
 
-      processTemplate(templateContent, params, spinner, startTime);
+      await processTemplate(templateContent, params, spinner, startTime);
     }
   });
 

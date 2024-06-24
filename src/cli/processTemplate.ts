@@ -5,8 +5,9 @@ import { writeFile } from './writeFile.js';
 import { renderMessage } from './renderMessage.js';
 import { parseTemplate } from '../lib/parseTemplate.js';
 import { getOutputDirectory } from '../lib/getOutputDirectory.js';
+import { checkExistingFiles } from './checkExistingFiles.js';
 
-export const processTemplate = (
+export const processTemplate = async (
   templateContent: string,
   params: any,
   spinner: Ora,
@@ -14,6 +15,14 @@ export const processTemplate = (
 ) => {
   const files = parseTemplate(templateContent, params);
   const outputDirectory = getOutputDirectory(params);
+
+  const overwriteFiles = await checkExistingFiles(files, params, spinner);
+
+  if (!overwriteFiles) {
+    spinner.fail();
+    console.log(`\nCancelling so as to not overwrite files`);
+    process.exit(1);
+  }
 
   // TODO: How to handle no files?
   files.forEach((file) => {
@@ -23,7 +32,7 @@ export const processTemplate = (
   const endTime = new Date();
   const time = endTime.getTime() - startTime.getTime();
 
-  spinner.stopAndPersist({ symbol: '✅' });
+  spinner.succeed();
   console.log(`\nWrote ${files.length} files in ${time}ms`);
 
   console.log('');

@@ -63,6 +63,7 @@ scffld template-name --myProperty="foo"
 
 | Name              | Short name |
 | ----------------- | ---------- |
+| `overwrite`       |            |
 | `outputDirectory` | `o`        |
 | `version`         | `V`        |
 | `help`            | `h`        |
