@@ -13,7 +13,7 @@ TL;DR - take a look at the [examples](../examples/).
 
 Parameters are defined using a YAML frontmatter block, separated from the rest of the template using three dashes (`---`).
 
-The only required parameter is `props` (even if it's empty), but it's a good idea to provide a default `outputDirectory`.
+None of the parameters are required, but it's a good idea to provide a default `outputDirectory`.
 
 ```yaml
 ---

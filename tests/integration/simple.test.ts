@@ -68,4 +68,28 @@ describe('sscffld', () => {
     },
     TIMEOUT
   );
+
+  it(
+    'should show message if no files',
+    async () => {
+      const { execute, cleanup, makeDir, writeFile, ls, exists } =
+        await prepareEnvironment();
+
+      // Copy templates into the virtual filesystem
+      await makeDir('./examples');
+      const template = fs.readFileSync('./examples/minimal.md');
+      await writeFile('./examples/minimal.md', template.toString());
+
+      const { code, stderr, stdout } = await execute(
+        'scffld',
+        'examples/minimal --name=test'
+      );
+
+      expect(code).toBe(0);
+      expect(stdout.join('\n')).toContain('No files to write');
+
+      await cleanup();
+    },
+    TIMEOUT
+  );
 });

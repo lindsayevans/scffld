@@ -7,6 +7,7 @@ import { parseTemplate } from '../lib/parseTemplate.js';
 import { getOutputDirectory } from '../lib/getOutputDirectory.js';
 import { checkExistingFiles } from './checkExistingFiles.js';
 import { runCommands } from './runCommands.js';
+import chalk from 'chalk';
 
 export const processTemplate = async (
   templateContent: string,
@@ -25,7 +26,12 @@ export const processTemplate = async (
     process.exit(1);
   }
 
-  // TODO: How to handle no files?
+  if (files.length === 0) {
+    spinner.fail();
+    console.log(chalk.yellow(`\nNo files to write`));
+    return;
+  }
+
   files.forEach((file) => {
     writeFile(file);
   });
