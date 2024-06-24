@@ -34,6 +34,9 @@ props:
 | `postInstallCommands` | List of commands to run after scffld has finished writing files<br>Can also contain [path directives](#path-directives) |
 | `props`               | A map of the properties that the template uses                                                                          |
 
+**Note:**
+`postInstallCommands` will be squished down to a single line & special characters escaped, so should only be used for simple commands.
+
 ### Properties
 
 The map key used determines the property used on the command line, e.g.
