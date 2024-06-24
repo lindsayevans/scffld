@@ -13,12 +13,16 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['18.x', '20.x', '22.x']
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
+        name: Use Node.js ${{ matrix.node-version }}
         with:
-          node-version: 20.x
+          node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
           cache: pnpm
 
@@ -27,6 +31,12 @@ jobs:
       - run: npm link
       - run: pnpm test:unit --runInBand
       - run: pnpm test:integration --runInBand
+
+  tmp:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - run: echo "done"
 
   release:
     runs-on: ubuntu-latest
