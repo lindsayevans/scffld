@@ -11,11 +11,9 @@ export const parseTemplate = (
 ): TemplateFile[] => {
   const md = markdownit();
   const parsedTemplate = md.parse(templateContent, {});
-  let codeblocks = parsedTemplate.filter(
-    (x) => x.type === 'fence' && x.tag === 'code'
-  );
 
-  const files = codeblocks
+  const files = parsedTemplate
+    .filter((x) => x.type === 'fence' && x.tag === 'code')
     .map((codeblock) => {
       const type = codeblock.info.split(' ')[0].trim();
       const fileInfo = codeblock.info.replace(`${type} `, '').trim();
