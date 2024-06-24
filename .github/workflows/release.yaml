@@ -22,10 +22,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: pnpm
 
-      - name: get-npm-version
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
-
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test:unit --runInBand
