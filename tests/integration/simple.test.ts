@@ -21,8 +21,8 @@ describe('sscffld', () => {
       );
 
       expect(code).toBe(0);
-      expect(stdout.join('\n')).toContain('Wrote 5 files in');
-      await expect(exists('./demo-src/simple/test.css')).resolves.toBe(true);
+      expect(stdout.join('\n')).toContain('Wrote 3 files in');
+      await expect(exists('./demo-src/simple/simple.css')).resolves.toBe(true);
 
       await cleanup();
     },
@@ -41,8 +41,8 @@ describe('sscffld', () => {
       );
 
       expect(code).toBe(0);
-      expect(stdout.join('\n')).toContain('Wrote 5 files in');
-      await expect(exists('./demo-src/simple/test.css')).resolves.toBe(true);
+      expect(stdout.join('\n')).toContain('Wrote 3 files in');
+      await expect(exists('./demo-src/simple/simple.css')).resolves.toBe(true);
 
       await cleanup();
     },
@@ -61,8 +61,8 @@ describe('sscffld', () => {
       );
 
       expect(code).toBe(0);
-      expect(stdout.join('\n')).toContain('Wrote 5 files in');
-      await expect(exists('./demo-src/simple/test.css')).resolves.toBe(true);
+      expect(stdout.join('\n')).toContain('Wrote 3 files in');
+      await expect(exists('./demo-src/simple/simple.css')).resolves.toBe(true);
 
       await cleanup();
     },
