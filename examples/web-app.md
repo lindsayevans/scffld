@@ -13,6 +13,11 @@ props:
   includeIcons:
     type: boolean
     default: true
+postInstallCommands:
+  - echo "Hello ${ @scffld name }!"
+  - git init
+  - npm install
+  - npm run prettier
 postInstallMessage: |
   ___
   # Your web app '<!-- @scffld name -->' has been created!
@@ -34,19 +39,30 @@ postInstallMessage: |
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write ."
   },
   "devDependencies": {
     /* @scffld-if includeStyle */
     "@parcel/transformer-sass": "^2",
     /* @scffld-endif */
-    "parcel": "^2"
+    "parcel": "^2",
+    "prettier": "^3"
   },
   "dependencies": {
     /* @scffld-if includeIcons */
     "bootstrap-icons": "^1"
     /* @scffld-endif */
   }
+}
+```
+
+```json { filename: '.prettierrc' }
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "semi": false
 }
 ```
 

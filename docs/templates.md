@@ -27,11 +27,12 @@ props:
 
 ### Available parameters
 
-| Parameter            | Details                                                                                                              |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `outputDirectory`    | Base directory where files should be written                                                                         |
-| `postInstallMessage` | Markdown displayed to the user after scffld has finished writing files<br>Can also contain [directives](#directives) |
-| `props`              | A map of the properties that the template uses                                                                       |
+| Parameter             | Details                                                                                                                 |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `outputDirectory`     | Base directory where files should be written                                                                            |
+| `postInstallMessage`  | Markdown displayed to the user after scffld has finished writing files<br>Can also contain [directives](#directives)    |
+| `postInstallCommands` | List of commands to run after scffld has finished writing files<br>Can also contain [path directives](#path-directives) |
+| `props`               | A map of the properties that the template uses                                                                          |
 
 ### Properties
 

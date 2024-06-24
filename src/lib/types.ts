@@ -18,6 +18,7 @@ export type TemplateParams = {
   name?: string;
   outputDirectory?: string;
   postInstallMessage?: string;
+  postInstallCommands?: string[];
   props?: TemplateProps;
   options?: TemplateOptions;
 };

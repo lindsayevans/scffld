@@ -6,6 +6,7 @@ import { renderMessage } from './renderMessage.js';
 import { parseTemplate } from '../lib/parseTemplate.js';
 import { getOutputDirectory } from '../lib/getOutputDirectory.js';
 import { checkExistingFiles } from './checkExistingFiles.js';
+import { runCommands } from './runCommands.js';
 
 export const processTemplate = async (
   templateContent: string,
@@ -44,5 +45,9 @@ export const processTemplate = async (
 
   if (params.postInstallMessage) {
     console.log(renderMessage(params.postInstallMessage, params));
+  }
+
+  if (params.postInstallCommands) {
+    await runCommands(params.postInstallCommands, params);
   }
 };
