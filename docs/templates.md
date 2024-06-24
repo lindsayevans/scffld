@@ -46,20 +46,23 @@ The map key used determines the property used on the command line, e.g.
 props:
   myProperty:
     type: string
+  myOtherProperty:
+    type: boolean
 ---
 ```
 
 ```sh
-scffld template-name --myProperty="foo"
+scffld template-name --myProperty="foo bar" --myOtherProperty=true
 ```
 
 ### Property fields
 
 | Field         | Details                                                      |
 | ------------- | ------------------------------------------------------------ |
-| `type`        | Currently only `string` & `boolean` are allowed              |
+| `type`        | `string`, `boolean` or `list`                                |
 | `required`    | User must supply a value                                     |
 | `default`     | Default value if not supplied                                |
+| `options`     | List of options available for `type: list`                   |
 | `shortName`   | Shortened option name                                        |
 | `description` | Description of the property<br>Displayed when using `--help` |
 
