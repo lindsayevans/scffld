@@ -18,7 +18,22 @@ Files will be created in `my-project/src`
 
 ![Example of command output](./screenshot.svg)
 
-## Syntax
+## Slightly less-quick start
+
+Use the [web-app template](../examples/web-app.md) without the required `name` prop:
+
+```sh
+npx @querc/scffld github:lindsayevans/scffld/examples/web-app -o ./my-web-app/src/
+```
+
+A few things to note:
+
+- It will prompt you for the missing name, and allow you to change the defaults of any other template options
+- Will prompt to overwrite any existing files
+- Displays a custom post install message
+- Prompts you to allow running of custom post install commands
+
+## Basic syntax
 
 ```sh
 npx @querc/scffld template [options]
