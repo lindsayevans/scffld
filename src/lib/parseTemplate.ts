@@ -4,6 +4,7 @@ import YAML from 'yaml';
 import { TemplateFile, TemplateParams } from './types.js';
 import { renderTemplateBlock } from './renderTemplateBlock.js';
 import { getOutputDirectory } from './getOutputDirectory.js';
+import { sanitisePath } from './sanitisePath.js';
 
 export const parseTemplate = (
   templateContent: string,
@@ -34,10 +35,8 @@ export const parseTemplate = (
         return;
       }
 
-      const renderedPath = renderTemplateBlock(
-        'path',
-        parsedFileInfo.filename,
-        params
+      const renderedPath = sanitisePath(
+        renderTemplateBlock('path', parsedFileInfo.filename, params)
       );
       const renderedFile = renderTemplateBlock(
         type,

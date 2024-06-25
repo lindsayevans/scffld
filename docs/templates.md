@@ -91,6 +91,8 @@ CONTENT
 - FILE_INFO: A YAML object with at least a `filename` field to determine the output filename, can contain [Path directives](#path-directives)
 - CONTENT: The file content, can contain [Directives](#directives)
 
+**Note:** `filename` will have `../` stripped out, so files can only be created within `outputDirectory`
+
 FILE_INFO can also contain a `condition` field which determines whether to output the file based on a prop:
 
 ````md
