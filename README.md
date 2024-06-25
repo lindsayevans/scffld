@@ -1,6 +1,7 @@
 # scffld
 
 [![NPM Version](https://img.shields.io/npm/v/%40querc%2Fscffld)](https://www.npmjs.com/package/@querc/scffld)
+[![codecov](https://codecov.io/gh/lindsayevans/scffld/graph/badge.svg?token=ERAIXQNUZF)](https://codecov.io/gh/lindsayevans/scffld)
 
 Simple code scaffolding tool utilising a single Markdown file to define templates & properties.
 
