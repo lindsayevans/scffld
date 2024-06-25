@@ -170,7 +170,12 @@ export const parseConditionals = (
       let endIndex = fileContent.indexOf(endIfString);
       let endLength = endIfString.length;
 
-      const elseIndex = fileContent.indexOf(elseString);
+      let elseIndex = fileContent.indexOf(elseString);
+
+      // Ensure that else tag position is before next closing if
+      if (elseIndex > endIndex) {
+        elseIndex = -1;
+      }
 
       if (conditionMatches) {
         //   If condition, strip tags
