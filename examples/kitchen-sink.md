@@ -120,6 +120,17 @@ CFML FTMFW
 <cfoutput>#message#</cfoutput>
 ```
 
+YOLO
+
+```COBOL { filename: 'HELLO.CBL' }
+IDENTIFICATION DIVISION.
+PROGRAM-ID. IDSAMPLE.
+ENVIRONMENT DIVISION.
+PROCEDURE DIVISION.
+    DISPLAY 'HELLO /* @scffld-upper name */'.
+    STOP RUN.
+```
+
 Various directives
 
 ```html { filename: '${ @scffld-pascal name }/${ @scffld-kebab name }-output-directives.html' }
