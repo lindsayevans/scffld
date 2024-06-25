@@ -10,6 +10,16 @@ Simple code scaffolding tool utilising a single Markdown file to define template
 
 I wanted something that was a bit less complex than full-blown code generation tools like Yeoman, Angular Schematics etc.
 
+## Features
+
+- Local or remote templates
+- File templates can be written in any language you want - HTML, XML, CSS, SCSS, JavaScript, TypeScript, Python, Ruby, PHP, ColdFusion, COBOL ...
+- Output user-supplied properties in your templates, with conversion & conditional directives
+- Prompt the user for missing properties - enter a text string, yes/no for booleans; or choose from a list of options
+- Display custom messages & run commands after scaffolding
+
+Take a look at the [template docs](./docs/templates.md) for full details.
+
 ## Usage
 
 Requires [NodeJS](https://nodejs.org/) 18+.
