@@ -54,6 +54,10 @@ export const addTemplateOptions = (
           option.parseArg = (value: string) => value === 'true';
         }
 
+        if (prop.type === 'list') {
+          option.argChoices = prop.options;
+        }
+
         if (prop.description) {
           option.description = prop.description;
         }

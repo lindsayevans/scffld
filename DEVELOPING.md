@@ -3,6 +3,7 @@ pnpm build
 npm link
 pnpm test:unit --watch
 pnpm test:integration
+pnpm start examples/minimal
 pnpm start examples/simple --name="My Simple Component" --overwrite --includeStyle=false
 pnpm start examples/web-app --name="My Web Site"
 pnpm start examples/web-app --name="My Web Site" --outputDirectory=./foo/src/

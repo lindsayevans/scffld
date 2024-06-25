@@ -6,6 +6,13 @@ props:
     type: string
     required: true
     shortName: N
+  packageManager:
+    type: list
+    default: npm
+    options:
+      - npm
+      - yarn
+      - pnpm
   includeStyle:
     type: boolean
     default: true
@@ -20,6 +27,8 @@ props:
   appRoot:
     type: string
     default: '@app/'
+postInstallCommands:
+  - echo "Hello from ${ @scffld name }!"
 postInstallMessage: |
   ___
   # Your web app '<!-- @scffld name -->' has been created!
@@ -117,7 +126,8 @@ Various directives
 <div class="<!-- @scffld-kebab name -->">
   <h2><!-- @scffld name --></h2>
   <pre>Relative path to outputDirectory: <!-- @scffld-relativeRoot -->
-includeStyle: <!-- @scffld includeStyle --></pre>
+includeStyle: <!-- @scffld includeStyle -->
+packageManager: <!-- @scffld packageManager --></pre>
   <h3>Replace methods:</h3>
   <dl>
     <dt>upper:</dt>

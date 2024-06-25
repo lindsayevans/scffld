@@ -24,6 +24,10 @@ export const renderTemplateBlock = (
   params: any,
   renderedPath?: string
 ) => {
+  if (fileType === 'base64') {
+    return atob(fileContent);
+  }
+
   const relativeRoot = () => {
     if (renderedPath) {
       const dirCount = renderedPath.split('/').length - 1;
@@ -90,10 +94,6 @@ export const renderTemplateBlock = (
 
   if (fileType === 'json') {
     fileContent = JSON.stringify(JSON5.parse(fileContent));
-  }
-
-  if (fileType === 'base64') {
-    fileContent = atob(fileContent);
   }
 
   return fileContent;
@@ -170,7 +170,12 @@ export const parseConditionals = (
       let endIndex = fileContent.indexOf(endIfString);
       let endLength = endIfString.length;
 
-      const elseIndex = fileContent.indexOf(elseString);
+      let elseIndex = fileContent.indexOf(elseString);
+
+      // Ensure that else tag position is before next closing if
+      if (elseIndex > endIndex) {
+        elseIndex = -1;
+      }
 
       if (conditionMatches) {
         //   If condition, strip tags

@@ -13,7 +13,7 @@ TL;DR - take a look at the [examples](../examples/).
 
 Parameters are defined using a YAML frontmatter block, separated from the rest of the template using three dashes (`---`).
 
-The only required parameter is `props` (even if it's empty), but it's a good idea to provide a default `outputDirectory`.
+None of the parameters are required, but it's a good idea to provide a default `outputDirectory`.
 
 ```yaml
 ---
@@ -27,11 +27,15 @@ props:
 
 ### Available parameters
 
-| Parameter            | Details                                                                                                              |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `outputDirectory`    | Base directory where files should be written                                                                         |
-| `postInstallMessage` | Markdown displayed to the user after scffld has finished writing files<br>Can also contain [directives](#directives) |
-| `props`              | A map of the properties that the template uses                                                                       |
+| Parameter             | Details                                                                                                                 |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `outputDirectory`     | Base directory where files should be written                                                                            |
+| `postInstallMessage`  | Markdown displayed to the user after scffld has finished writing files<br>Can also contain [directives](#directives)    |
+| `postInstallCommands` | List of commands to run after scffld has finished writing files<br>Can also contain [path directives](#path-directives) |
+| `props`               | A map of the properties that the template uses                                                                          |
+
+**Note:**
+`postInstallCommands` will be squished down to a single line & special characters escaped, so should only be used for simple commands.
 
 ### Properties
 
@@ -42,20 +46,23 @@ The map key used determines the property used on the command line, e.g.
 props:
   myProperty:
     type: string
+  myOtherProperty:
+    type: boolean
 ---
 ```
 
 ```sh
-scffld template-name --myProperty="foo"
+scffld template-name --myProperty="foo bar" --myOtherProperty=true
 ```
 
 ### Property fields
 
 | Field         | Details                                                      |
 | ------------- | ------------------------------------------------------------ |
-| `type`        | Currently only `string` & `boolean` are allowed              |
+| `type`        | `string`, `boolean` or `list`                                |
 | `required`    | User must supply a value                                     |
 | `default`     | Default value if not supplied                                |
+| `options`     | List of options available for `type: list`                   |
 | `shortName`   | Shortened option name                                        |
 | `description` | Description of the property<br>Displayed when using `--help` |
 

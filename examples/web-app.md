@@ -4,6 +4,13 @@ props:
   name:
     type: string
     required: true
+  packageManager:
+    type: list
+    default: npm
+    options:
+      - npm
+      - yarn
+      - pnpm
   includeStyle:
     type: boolean
     default: true
@@ -13,6 +20,10 @@ props:
   includeIcons:
     type: boolean
     default: true
+postInstallCommands:
+  - git init
+  - ${ @scffld packageManager } install
+  - ${ @scffld packageManager } run prettier
 postInstallMessage: |
   ___
   # Your web app '<!-- @scffld name -->' has been created!
@@ -34,19 +45,30 @@ postInstallMessage: |
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write ."
   },
   "devDependencies": {
     /* @scffld-if includeStyle */
     "@parcel/transformer-sass": "^2",
     /* @scffld-endif */
-    "parcel": "^2"
+    "parcel": "^2",
+    "prettier": "^3"
   },
   "dependencies": {
     /* @scffld-if includeIcons */
     "bootstrap-icons": "^1"
     /* @scffld-endif */
   }
+}
+```
+
+```json { filename: '.prettierrc' }
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "semi": false
 }
 ```
 

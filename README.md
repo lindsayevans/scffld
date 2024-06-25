@@ -20,16 +20,10 @@ npx @querc/scffld@latest github:lindsayevans/scffld/examples/simple \
     -o ./my-project/src/
 ```
 
+(Windows users will need to remove `\` and put everything on one line)
+
 Files will be created in `my-project/src`
 
 ![Example of command output](./docs/screenshot.svg)
 
 See [docs/usage.md](./docs/usage.md) for more details or check out the [example templates](./examples/).
-
-## TODO
-
-- [ ] Check if it works on Windows
-- [ ] ~~else~~/elseif conditionals
-- [ ] Nested conditionals
-- [x] Export API
-- [ ] Tests

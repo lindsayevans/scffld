@@ -5,10 +5,11 @@ export type TemplateProps = Record<
   {
     prompt?: string;
     shortName?: string;
-    type?: string;
+    type?: 'string' | 'boolean' | 'list';
     required?: boolean;
     default?: TemplatePropType;
     description?: string;
+    options?: string[];
   }
 >;
 
@@ -18,6 +19,7 @@ export type TemplateParams = {
   name?: string;
   outputDirectory?: string;
   postInstallMessage?: string;
+  postInstallCommands?: string[];
   props?: TemplateProps;
   options?: TemplateOptions;
 };
