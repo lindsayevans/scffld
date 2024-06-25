@@ -6,7 +6,7 @@ props:
     required: true
   packageManager:
     type: list
-    default: yarn
+    default: npm
     options:
       - npm
       - yarn
@@ -21,7 +21,6 @@ props:
     type: boolean
     default: true
 postInstallCommands:
-  - echo "Hello ${ @scffld name }!"
   - git init
   - ${ @scffld packageManager } install
   - ${ @scffld packageManager } run prettier
