@@ -18,6 +18,9 @@
     "cli",
     "scaffold",
     "scaffolding",
+    "template",
+    "templating",
+    "code-generation",
     "markdown"
   ],
   "author": "Lindsay Evans <linz@linz.id.au>",
