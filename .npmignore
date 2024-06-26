@@ -7,3 +7,5 @@ tsconfig.json
 examples
 demo-src
 docs
+tests
+jest.config.*
