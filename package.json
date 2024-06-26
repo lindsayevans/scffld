@@ -1,15 +1,15 @@
 {
   "name": "@querc/scffld",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simple code scaffolding tool using a Markdown file to define templates & properties",
   "main": "dist/index.js",
   "bin": "./dist/cli.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test:unit": "jest --testMatch='<rootDir>/src/**/*.test.ts'",
-    "test:integration": "jest --testMatch='<rootDir>/tests/integration/**/*.ts'",
-    "test:cli": "scffld examples/kitchen-sink --name=test && scffld examples/simple --name=test",
+    "test:unit": "jest",
+    "test:integration": "jest --config=./jest.config.integration.js",
+    "test:cli": "scffld examples/simple --overwrite --name=test && scffld github:lindsayevans/scffld/examples/simple --overwrite --name=test",
     "prestart": "pnpm build",
     "start": "npm link && scffld",
     "clean": "rm -rf demo-src"

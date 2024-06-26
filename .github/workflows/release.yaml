@@ -12,9 +12,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest]
         node-version: ['18.x', '20.x', '22.x']
     steps:
       - uses: actions/checkout@v4
@@ -29,8 +30,16 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: npm link
-      - run: pnpm test:unit --runInBand
+      - run: pnpm test:unit --runInBand --coverage
       - run: pnpm test:integration --runInBand
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+      - run: pnpm test:cli --runInBand
+        if: ${{ matrix.os == 'windows-latest' }}
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   release:
     runs-on: ubuntu-latest
