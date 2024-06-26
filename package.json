@@ -9,7 +9,7 @@
     "build": "tsc",
     "test:unit": "jest",
     "test:integration": "jest --config=./jest.config.integration.js",
-    "test:cli": "scffld examples/kitchen-sink --name=test && scffld examples/simple --name=test",
+    "test:cli": "scffld examples/simple --overwrite --name=test && scffld github:lindsayevans/scffld/examples/simple --overwrite --name=test",
     "prestart": "pnpm build",
     "start": "npm link && scffld",
     "clean": "rm -rf demo-src"
