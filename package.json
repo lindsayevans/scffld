@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test:unit": "cross-env NODE_OPTIONS='$NODE_OPTIONS --experimental-vm-modules' jest",
+    "test:unit": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest",
     "test:integration": "jest --config=./jest.config.integration.js",
     "test:cli": "scffld examples/simple --overwrite --name=test && scffld github:lindsayevans/scffld/examples/simple --overwrite --name=test",
     "prestart": "pnpm build",
