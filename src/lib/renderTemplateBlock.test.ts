@@ -1,5 +1,3 @@
-import { jest } from '@jest/globals';
-
 import { renderTemplateBlock } from './renderTemplateBlock';
 
 describe('renderTemplateBlock', () => {
