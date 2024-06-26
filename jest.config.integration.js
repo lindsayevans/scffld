@@ -2,7 +2,7 @@
 export default {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testMatch: ['<rootDir>/src/**/*.test.ts'],
+  testMatch: ['<rootDir>/tests/integration/**/*.ts'],
   preset: 'ts-jest/presets/default-esm', // or other ESM presets
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
