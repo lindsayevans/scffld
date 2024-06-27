@@ -2,7 +2,8 @@
 
 Generate template from existing files
 
-See [Feature #3](https://github.com/lindsayevans/scffld/issues/3) for the gory details.
+> [!IMPORTANT]
+> Generator won't do everything for you & the resulting template will likely need some manual tweaking to add directives etc.
 
 ## Syntax
 
@@ -10,16 +11,21 @@ See [Feature #3](https://github.com/lindsayevans/scffld/issues/3) for the gory d
 scffld generate [...glob]
 ```
 
-Where `glob` is a list of [globby compatible](https://www.npmjs.com/package/globby) globs
+Where `glob` is a list of [globby compatible](https://www.npmjs.com/package/globby) globs.
+
+The resulting template is printed to output, to write to a file append ` > path/to/template.md`
+
+If a `.gitignore` is present it will respect it.
 
 ## Examples
 
+Grab everything in a directory:
+
 ```sh
-npx @querc/scffld generate \
-    ./src/components/Foo/ \
-    ./src/components/Bar/ \
-    > templates/components.md
+npx @querc/scffld generate ./src/ > templates/app.md
 ```
+
+Only include specific filetypes in a subdirectory:
 
 ```sh
 npx @querc/scffld generate \
