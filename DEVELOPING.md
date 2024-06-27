@@ -18,7 +18,8 @@ pnpm start github:lindsayevans/scffld/examples/simple@main --name="My Github Com
 Generator
 
 ```sh
-pnpm start :generate ./src/
+pnpm start :generate ./demo-src/simple/
+pnpm start :generate ./demo-src/web-app/
 ```
 
 Create SVG screenshot - requires [asciinema](https://docs.asciinema.org/getting-started/)
