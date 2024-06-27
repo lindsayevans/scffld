@@ -18,9 +18,9 @@ pnpm start github:lindsayevans/scffld/examples/simple@main --name="My Github Com
 Generator
 
 ```sh
-pnpm start :generate ./demo-src/simple/
-pnpm start :generate ./demo-src/web-app/
-scffld :generate ./demo-src/simple/ > tmp.md
+pnpm start generate ./demo-src/simple/
+pnpm start generate ./demo-src/web-app/
+scffld generate ./demo-src/simple/ > tmp.md
 pnpm start tmp --outputDirectory=./generator-src/
 ```
 

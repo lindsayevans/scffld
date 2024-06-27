@@ -5,7 +5,7 @@ import { globby } from 'globby';
 import { TemplateFile } from '../lib/types.js';
 import { renderTemplate } from '../lib/generator/renderTemplate.js';
 
-export const GENERATE_COMMAND = ':generate';
+export const GENERATE_COMMAND = 'generate';
 
 export const generate = async (argv: string[]) => {
   const globs = argv.slice(3);

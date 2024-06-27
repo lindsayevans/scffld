@@ -7,7 +7,7 @@ See [Feature #3](https://github.com/lindsayevans/scffld/issues/3) for the gory d
 ## Syntax
 
 ```
-scffld :generate [...glob]
+scffld generate [...glob]
 ```
 
 Where `glob` is a list of [globby compatible](https://www.npmjs.com/package/globby) globs
@@ -15,14 +15,14 @@ Where `glob` is a list of [globby compatible](https://www.npmjs.com/package/glob
 ## Examples
 
 ```sh
-npx @querc/scffld :generate \
+npx @querc/scffld generate \
     ./src/components/Foo/ \
     ./src/components/Bar/ \
     > templates/components.md
 ```
 
 ```sh
-npx @querc/scffld :generate \
+npx @querc/scffld generate \
     ./src/components/**/*.{tsx,scss} */ \
     > templates/components.md
 ```
