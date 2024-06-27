@@ -1,5 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
+import buffer from 'node:buffer';
 import { globby } from 'globby';
 
 import { TemplateFile } from '../lib/types.js';
@@ -19,13 +20,17 @@ const getFiles = async (paths: string[]): Promise<TemplateFile[]> => {
   const files: TemplateFile[] = [];
 
   for await (const filename of paths) {
-    const type = path.extname(filename).replace(/^\./, '');
+    let type = path.extname(filename).replace(/^\./, '');
     const content = await fs.readFile(filename);
+
+    if (!buffer.isUtf8(content)) {
+      type = 'base64';
+    }
 
     const file: TemplateFile = {
       filename,
       type,
-      content: content.toString(),
+      content: content.toString(type === 'base64' ? 'base64' : undefined),
     };
 
     files.push(file);
