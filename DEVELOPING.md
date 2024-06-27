@@ -18,5 +18,5 @@ pnpm start github:lindsayevans/scffld/examples/simple@main --name="My Github Com
 Create SVG screenshot - requires [asciinema](https://docs.asciinema.org/getting-started/)
 
 ```sh
-npx svg-term --at=5000 --command="npx scffld github:lindsayevans/scffld/examples/simple --name=\"My Awesome Component\"" --out=screenshot.svg --window --no-cursor --height=18
+npx svg-term --at=5000 --command="npx scffld github:lindsayevans/scffld/examples/simple --name=\"My Awesome Component\"" --out=screenshot.svg --window --no-cursor --width=80 --height=18
 ```

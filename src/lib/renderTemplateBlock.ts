@@ -80,16 +80,14 @@ export const renderTemplateBlock = (
   }
 
   fileContent = fileContent
-    .replace(rawRegex, (m, ...s) => params.options[s[0] || ''])
+    .replace(rawRegex, (m, ...s) =>
+      params.options[s[0]] === undefined ? '' : params.options[s[0]]
+    )
     .replace(replaceRegex, (m, ...s) => {
       const method = replaceMethods[s[0].trim()];
       if (method) {
         return method(params.options[s[1]] || '');
       }
-
-      console.warn(`Unknown replace method '${s[0]}'`);
-
-      return '';
     });
 
   if (fileType === 'json') {
