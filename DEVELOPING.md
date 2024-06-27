@@ -20,6 +20,8 @@ Generator
 ```sh
 pnpm start :generate ./demo-src/simple/
 pnpm start :generate ./demo-src/web-app/
+scffld :generate ./demo-src/simple/ > tmp.md
+pnpm start tmp --outputDirectory=./generator-src/
 ```
 
 Create SVG screenshot - requires [asciinema](https://docs.asciinema.org/getting-started/)

@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import { globby } from 'globby';
 
 import { TemplateFile } from '../lib/types.js';
+import { renderTemplate } from '../lib/generator/renderTemplate.js';
 
 export const GENERATE_COMMAND = ':generate';
 
@@ -11,7 +12,7 @@ export const generate = async (argv: string[]) => {
   const paths = await globby(globs);
   const files = await getFiles(paths);
 
-  console.log(files);
+  console.log(renderTemplate(files));
 };
 
 const getFiles = async (paths: string[]): Promise<TemplateFile[]> => {
