@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { renderTemplateBlock } from './renderTemplateBlock';
 
 describe('renderTemplateBlock', () => {
@@ -100,7 +101,7 @@ describe('renderTemplateBlock', () => {
 
     expect(result).toBeTruthy();
     expect(result).toContain('outputDirectory: [./src/abc/123/]');
-    expect(result).toContain('relativeRoot: [../../]');
+    expect(result).toContain(`relativeRoot: [..${path.sep}..${path.sep}]`);
 
     expect(result).toContain('name: [Testing renderTemplateBlock]');
     expect(result).toContain('yeah: [false]');
