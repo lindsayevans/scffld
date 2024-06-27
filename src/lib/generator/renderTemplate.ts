@@ -7,7 +7,6 @@ export const renderTemplate = (files: TemplateFile[]) => {
 #   name:
 #     type: string
 #     required: true
-#     shortName: N
 ---
 
 `;
