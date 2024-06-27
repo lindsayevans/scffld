@@ -22,13 +22,13 @@ If a `.gitignore` is present it will respect it.
 Grab everything in a directory:
 
 ```sh
-npx @querc/scffld generate ./src/ > templates/app.md
+npx @querc/scffld@alpha generate ./src/ > templates/app.md
 ```
 
 Only include specific filetypes in a subdirectory:
 
 ```sh
-npx @querc/scffld generate \
+npx @querc/scffld@alpha generate \
     ./src/components/**/*.{tsx,scss} */ \
     > templates/components.md
 ```
