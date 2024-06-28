@@ -1,9 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import ora from 'ora';
+import ora, { Ora } from 'ora';
 
-export const loadTemplate = async (templateName: string): Promise<string> => {
+export const loadTemplate = async (
+  templateName: string,
+  options: { quiet?: boolean } = {}
+): Promise<string> => {
   let templateContent: string;
+  const { quiet } = options;
 
   if (
     templateName.startsWith('http:') ||
@@ -12,8 +16,11 @@ export const loadTemplate = async (templateName: string): Promise<string> => {
     templateName.startsWith('reg:')
   ) {
     // Remote template
-    console.log('');
-    const fetchSpinner = ora(`Fetching template ${templateName}...`).start();
+    let fetchSpinner: Ora | undefined = undefined;
+    if (!quiet) {
+      console.log('');
+      fetchSpinner = ora(`Fetching template ${templateName}...`).start();
+    }
     let url = templateName;
 
     if (templateName.startsWith('github:')) {
@@ -48,7 +55,9 @@ export const loadTemplate = async (templateName: string): Promise<string> => {
 
     const response = await fetch(url);
     templateContent = await response.text();
-    fetchSpinner.succeed();
+    if (fetchSpinner !== undefined && !quiet) {
+      fetchSpinner.succeed();
+    }
   } else {
     // Local template
     templateContent = fs

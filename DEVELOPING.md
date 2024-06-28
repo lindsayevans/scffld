@@ -14,6 +14,7 @@ pnpm start https://raw.githubusercontent.com/lindsayevans/scffld/develop/example
 pnpm start github:lindsayevans/scffld/examples/simple --name="My Github Component"
 pnpm start github:lindsayevans/scffld/examples/simple@main --name="My Github Component"
 pnpm start reg:parcel-web-app --overwrite --outputDirectory=./demo-src/reg-app/
+pnpm start show github:lindsayevans/scffld/examples/simple
 ```
 
 Generator
