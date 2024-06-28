@@ -40,6 +40,9 @@ jobs:
       - run: pnpm test:cli --runInBand
         if: ${{ matrix.os == 'windows-latest' }}
 
+      # Basic test to make sure generator works
+      - run: npx scffld generate ./src/
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.0.1
         with:

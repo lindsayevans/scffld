@@ -1,6 +1,6 @@
 {
   "name": "@querc/scffld",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Simple code scaffolding tool using a Markdown file to define templates & properties",
   "main": "dist/index.js",
   "bin": "./dist/cli.js",
@@ -51,6 +51,7 @@
     "change-case": "^5.4.4",
     "commander": "^12.1.0",
     "figlet": "^1.7.0",
+    "globby": "^14.0.1",
     "inquirer": "^9.2.23",
     "json5": "^2.2.3",
     "markdown-it": "^14.1.0",
