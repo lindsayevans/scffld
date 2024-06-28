@@ -8,7 +8,8 @@ export const loadTemplate = async (templateName: string): Promise<string> => {
   if (
     templateName.startsWith('http:') ||
     templateName.startsWith('https:') ||
-    templateName.startsWith('github:')
+    templateName.startsWith('github:') ||
+    templateName.startsWith('reg:')
   ) {
     // Remote template
     console.log('');
@@ -30,6 +31,19 @@ export const loadTemplate = async (templateName: string): Promise<string> => {
       }/${revision}/${parts.slice(2).join('/')}${
         templateName.endsWith('.md') ? '' : '.md'
       }`;
+    } else if (templateName.startsWith('reg:')) {
+      let revision = 'HEAD';
+      const revisionMatch = templateName.match(/@([^\/]*)/i);
+      if (revisionMatch) {
+        revision = revisionMatch[1];
+        templateName = templateName.replace(revisionMatch[0], '');
+      }
+
+      const parts = templateName.replace('reg:', '').split('/');
+
+      url = `https://raw.githubusercontent.com/querc-net/scffld-registry/${revision}/templates/${parts.join(
+        '/'
+      )}${templateName.endsWith('.md') ? '' : '.md'}`;
     }
 
     const response = await fetch(url);
