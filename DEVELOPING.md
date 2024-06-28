@@ -13,6 +13,7 @@ pnpm start examples/kitchen-sink --name="My Kitchen Sink" --includeStyle=false -
 pnpm start https://raw.githubusercontent.com/lindsayevans/scffld/develop/examples/simple.md --name="My Remote Component"
 pnpm start github:lindsayevans/scffld/examples/simple --name="My Github Component"
 pnpm start github:lindsayevans/scffld/examples/simple@main --name="My Github Component"
+pnpm start reg:parcel-web-app --overwrite --outputDirectory=./demo-src/reg-app/
 ```
 
 Generator
