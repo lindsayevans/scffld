@@ -12,6 +12,8 @@ npx @querc/scffld github:lindsayevans/scffld/examples/simple \
     -o ./my-project/src/
 ```
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz_small.svg)](https://stackblitz.com/edit/scffld-quickstart?file=README.md)
+
 (Windows users will need to remove `\` and put everything on one line)
 
 Files will be created in `my-project/src`
