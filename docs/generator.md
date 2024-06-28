@@ -11,7 +11,7 @@ Generate template from existing files
 scffld generate [...glob]
 ```
 
-Where `glob` is a list of [globby compatible](https://www.npmjs.com/package/globby) globs.
+Where `glob` is a space separated list of [globby compatible](https://www.npmjs.com/package/globby) globs.
 
 The resulting template is printed to output, to write to a file append ` > path/to/template.md`
 
