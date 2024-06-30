@@ -17,6 +17,10 @@ export type TemplateOptions = Record<string, TemplatePropType>;
 
 export type TemplateParams = {
   name?: string;
+  description?: string;
+  keywords?: string[];
+  authors?: string[];
+  contributors?: string[];
   outputDirectory?: string;
   postInstallMessage?: string;
   postInstallCommands?: string[];
