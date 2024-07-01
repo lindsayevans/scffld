@@ -48,7 +48,7 @@ export const loadTemplate = async (
 
       const parts = templateName.replace('reg:', '').split('/');
 
-      url = `https://raw.githubusercontent.com/querc-net/scffld-registry/${revision}/templates/${parts.join(
+      url = `https://raw.githubusercontent.com/scffld-dev/website/${revision}/templates/${parts.join(
         '/'
       )}${templateName.endsWith('.md') ? '' : '.md'}`;
     }

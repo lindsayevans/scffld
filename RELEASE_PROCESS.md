@@ -19,4 +19,4 @@ pnpm version patch
 pnpm version minor
 ```
 
-Push/merge to `main` branch will trigger CI/CD workflow, which publishes `@querc/scffld@VERSION` & creates a GitHub release
+Push/merge to `main` branch will trigger CI/CD workflow, which publishes `@scffld/cli@VERSION` & creates a GitHub release

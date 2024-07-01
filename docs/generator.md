@@ -24,13 +24,13 @@ If a `.gitignore` is present it will respect it.
 Grab everything in a directory:
 
 ```sh
-npx @querc/scffld generate ./src/ > templates/app.md
+npx @scffld/cli generate ./src/ > templates/app.md
 ```
 
 Only include specific filetypes in a subdirectory:
 
 ```sh
-npx @querc/scffld generate \
+npx @scffld/cli generate \
     ./src/components/**/*.{tsx,scss} */ \
     > templates/components.md
 ```
@@ -38,7 +38,7 @@ npx @querc/scffld generate \
 Base path:
 
 ```sh
-npx @querc/scffld generate ./src/components/ --basePath=src/components/ > templates/app.md
+npx @scffld/cli generate ./src/components/ --basePath=src/components/ > templates/app.md
 ```
 
 Given:

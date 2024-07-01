@@ -7,7 +7,7 @@ See [installation.md](./installation.md) for local install instructions.
 ## Quickstart
 
 ```sh
-npx @querc/scffld github:scffld-dev/cli/examples/simple \
+npx @scffld/cli github:scffld-dev/cli/examples/simple \
     --name="My Awesome Component" \
     -o ./my-project/src/
 ```
@@ -25,7 +25,7 @@ Files will be created in `my-project/src`
 Use the [web-app template](../examples/web-app.md) without the required `name` prop:
 
 ```sh
-npx @querc/scffld github:scffld-dev/cli/examples/web-app -o ./my-web-app/src/
+npx @scffld/cli github:scffld-dev/cli/examples/web-app -o ./my-web-app/src/
 ```
 
 A few things to note:
@@ -38,7 +38,7 @@ A few things to note:
 ## Basic syntax
 
 ```sh
-npx @querc/scffld template [options]
+npx @scffld/cli template [options]
 ```
 
 ## Local templates
@@ -47,7 +47,7 @@ npx @querc/scffld template [options]
 2. Run this command, replacing `examples/simple` with your template name
 
 ```sh
-npx @querc/scffld examples/simple \
+npx @scffld/cli examples/simple \
     --name="My Awesome Component" \
     -o ./my-project/src/
 ```
@@ -57,14 +57,14 @@ Files will be created in `my-project/src`
 Show supported options for the template:
 
 ```sh
-npx @querc/scffld examples/simple \
+npx @scffld/cli examples/simple \
     --help
 ```
 
 Try it out with a few options different to the defaults:
 
 ```sh
-npx @querc/scffld examples/simple \
+npx @scffld/cli examples/simple \
     --name="My Other Component" \
     --includeStyle=false \
     --yeah=false \
@@ -75,7 +75,7 @@ npx @querc/scffld examples/simple \
 or leave out all options to be prompted for them:
 
 ```sh
-npx @querc/scffld examples/simple
+npx @scffld/cli examples/simple
 ```
 
 ## Remote templates
@@ -83,21 +83,21 @@ npx @querc/scffld examples/simple
 Templates can be loaded from a remote URL:
 
 ```sh
-npx @querc/scffld https://raw.githubusercontent.com/scffld-dev/cli/develop/examples/simple.md \
+npx @scffld/cli https://raw.githubusercontent.com/scffld-dev/cli/develop/examples/simple.md \
     --name="My Remote Component"
 ```
 
 or from GitHub:
 
 ```sh
-npx @querc/scffld github:scffld-dev/cli/examples/simple \
+npx @scffld/cli github:scffld-dev/cli/examples/simple \
     --name="My Remote Component"
 ```
 
 and with a specific commit/tag/branch:
 
 ```sh
-npx @querc/scffld github:scffld-dev/cli/examples/simple@v0.11.0 \
+npx @scffld/cli github:scffld-dev/cli/examples/simple@v0.11.0 \
     --name="My Remote Component"
 ```
 
