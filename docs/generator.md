@@ -8,10 +8,12 @@ Generate template from existing files
 ## Syntax
 
 ```
-scffld generate [...glob]
+scffld generate [...glob] [--basePath]
 ```
 
 Where `glob` is a space separated list of [globby compatible](https://www.npmjs.com/package/globby) globs.
+
+`basePath` can be specified to ignore that in the final filename.
 
 The resulting template is printed to output, to write to a file append ` > path/to/template.md`
 
@@ -31,4 +33,22 @@ Only include specific filetypes in a subdirectory:
 npx @querc/scffld generate \
     ./src/components/**/*.{tsx,scss} */ \
     > templates/components.md
+```
+
+Base path:
+
+```sh
+npx @querc/scffld generate ./src/components/ --basePath=src/components/ > templates/app.md
+```
+
+Given:
+
+```
+./src/components/Foo/Bar.tsx
+```
+
+Would output to:
+
+```
+Foo/Bar.tsx
 ```
