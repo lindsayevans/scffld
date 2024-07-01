@@ -1,5 +1,5 @@
 {
-  "name": "@querc/scffld",
+  "name": "@scffld/cli",
   "version": "1.4.2",
   "description": "Simple code scaffolding tool using a Markdown file to define templates & properties",
   "main": "dist/index.js",
