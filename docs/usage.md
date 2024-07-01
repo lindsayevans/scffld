@@ -7,7 +7,7 @@ See [installation.md](./installation.md) for local install instructions.
 ## Quickstart
 
 ```sh
-npx @querc/scffld github:lindsayevans/scffld/examples/simple \
+npx @querc/scffld github:scffld-dev/cli/examples/simple \
     --name="My Awesome Component" \
     -o ./my-project/src/
 ```
@@ -25,7 +25,7 @@ Files will be created in `my-project/src`
 Use the [web-app template](../examples/web-app.md) without the required `name` prop:
 
 ```sh
-npx @querc/scffld github:lindsayevans/scffld/examples/web-app -o ./my-web-app/src/
+npx @querc/scffld github:scffld-dev/cli/examples/web-app -o ./my-web-app/src/
 ```
 
 A few things to note:
@@ -83,21 +83,21 @@ npx @querc/scffld examples/simple
 Templates can be loaded from a remote URL:
 
 ```sh
-npx @querc/scffld https://raw.githubusercontent.com/lindsayevans/scffld/develop/examples/simple.md \
+npx @querc/scffld https://raw.githubusercontent.com/scffld-dev/cli/develop/examples/simple.md \
     --name="My Remote Component"
 ```
 
 or from GitHub:
 
 ```sh
-npx @querc/scffld github:lindsayevans/scffld/examples/simple \
+npx @querc/scffld github:scffld-dev/cli/examples/simple \
     --name="My Remote Component"
 ```
 
 and with a specific commit/tag/branch:
 
 ```sh
-npx @querc/scffld github:lindsayevans/scffld/examples/simple@v0.11.0 \
+npx @querc/scffld github:scffld-dev/cli/examples/simple@v0.11.0 \
     --name="My Remote Component"
 ```
 

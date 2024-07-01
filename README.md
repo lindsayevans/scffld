@@ -1,8 +1,8 @@
 # scffld
 
 [![NPM Version](https://img.shields.io/npm/v/%40querc%2Fscffld)](https://www.npmjs.com/package/@querc/scffld)
-[![codecov](https://codecov.io/gh/lindsayevans/scffld/graph/badge.svg?token=ERAIXQNUZF)](https://codecov.io/gh/lindsayevans/scffld)
-[![Known Vulnerabilities](https://snyk.io/test/github/lindsayevans/scffld/badge.svg)](https://snyk.io/test/github/lindsayevans/scffld)
+[![codecov](https://codecov.io/gh/scffld-dev/cli/graph/badge.svg?token=ERAIXQNUZF)](https://codecov.io/gh/scffld-dev/cli)
+[![Known Vulnerabilities](https://snyk.io/test/github/scffld-dev/cli/badge.svg)](https://snyk.io/test/github/scffld-dev/cli)
 
 Simple code scaffolding tool utilising a single Markdown file to define templates & properties.
 
@@ -28,7 +28,7 @@ Requires [NodeJS](https://nodejs.org/) 18+.
 ### Quickstart
 
 ```sh
-npx @querc/scffld@latest github:lindsayevans/scffld/examples/simple \
+npx @querc/scffld@latest github:scffld-dev/cli/examples/simple \
     --name="My Awesome Component" \
     -o ./my-project/src/
 ```

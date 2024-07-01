@@ -37,7 +37,7 @@ describe('sscffld', () => {
 
       const { code, stderr, stdout } = await execute(
         'scffld',
-        'https://raw.githubusercontent.com/lindsayevans/scffld/develop/examples/simple.md --name=test'
+        'https://raw.githubusercontent.com/scffld-dev/cli/develop/examples/simple.md --name=test'
       );
 
       expect(code).toBe(0);
@@ -57,7 +57,7 @@ describe('sscffld', () => {
 
       const { code, stderr, stdout } = await execute(
         'scffld',
-        'github:lindsayevans/scffld/examples/simple --name=test'
+        'github:scffld-dev/cli/examples/simple --name=test'
       );
 
       expect(code).toBe(0);
