@@ -3,7 +3,7 @@
 scffld can be installed locally in your NodeJS project:
 
 ```sh
-npm i -D @querc/scffld
+npm i -D @scffld/cli
 ```
 
 You can then run using `npx scffld ...`

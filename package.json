@@ -1,15 +1,17 @@
 {
-  "name": "@querc/scffld",
-  "version": "1.4.2",
+  "name": "@scffld/cli",
+  "version": "1.6.0",
   "description": "Simple code scaffolding tool using a Markdown file to define templates & properties",
   "main": "dist/index.js",
-  "bin": "./dist/cli.js",
+  "bin": {
+    "scffld": "./dist/cli.js"
+  },
   "type": "module",
   "scripts": {
     "build": "tsc",
     "test:unit": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest",
     "test:integration": "jest --config=./jest.config.integration.js",
-    "test:cli": "scffld examples/simple --overwrite --name=test && scffld github:lindsayevans/scffld/examples/simple --overwrite --name=test",
+    "test:cli": "scffld examples/simple --overwrite --name=test && scffld github:scffld-dev/cli/examples/simple --overwrite --name=test",
     "prestart": "pnpm build",
     "start": "npm link && scffld",
     "clean": "rm -rf demo-src"
@@ -27,7 +29,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lindsayevans/scffld/"
+    "url": "https://github.com/scffld-dev/cli/"
   },
   "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74",
   "devDependencies": {

@@ -17,9 +17,9 @@ export const scaffold = async (argv: string[]) => {
   const { version } = createRequire(import.meta.url)('../../package.json');
 
   console.log(
-    chalk.cyan(figlet.textSync('scffld', { font: 'Ogre' })) +
+    chalk.magenta(figlet.textSync('scffld', { font: 'Ogre' })) +
       ' ' +
-      chalk.bold.green(`v${version}`)
+      chalk.bold.grey(`v${version}`)
   );
 
   program
