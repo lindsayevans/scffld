@@ -1,6 +1,6 @@
 {
   "name": "@scffld/cli",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Simple code scaffolding tool using a Markdown file to define templates & properties",
   "main": "dist/index.js",
   "bin": {
