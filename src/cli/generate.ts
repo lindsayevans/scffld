@@ -9,14 +9,25 @@ import { renderTemplate } from '../lib/generator/renderTemplate.js';
 export const GENERATE_COMMAND = 'generate';
 
 export const generate = async (argv: string[]) => {
-  const globs = argv.slice(3);
+  let globs = argv.slice(3);
+
+  const basePathArg = globs.findIndex((x) => x.startsWith('--basePath='));
+  let basePath: string | undefined = undefined;
+  if (basePathArg !== -1) {
+    basePath = globs.splice(basePathArg, 1)[0].split('=')[1];
+    console.log('basePath:', basePath);
+  }
+
   const paths = await globby(globs);
-  const files = await getFiles(paths);
+  const files = await getFiles(paths, basePath);
 
   console.log(renderTemplate(files));
 };
 
-const getFiles = async (paths: string[]): Promise<TemplateFile[]> => {
+const getFiles = async (
+  paths: string[],
+  basePath?: string
+): Promise<TemplateFile[]> => {
   const files: TemplateFile[] = [];
 
   for await (const filename of paths) {
@@ -28,7 +39,7 @@ const getFiles = async (paths: string[]): Promise<TemplateFile[]> => {
     }
 
     const file: TemplateFile = {
-      filename,
+      filename: basePath ? filename.replace(basePath, '') : filename,
       type,
       content: content.toString(type === 'base64' ? 'base64' : undefined),
     };
