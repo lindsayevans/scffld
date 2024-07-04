@@ -14,6 +14,7 @@ pnpm start https://raw.githubusercontent.com/scffld-dev/cli/develop/examples/sim
 pnpm start github:scffld-dev/cli/examples/simple --name="My Github Component"
 pnpm start github:scffld-dev/cli/examples/simple@main --name="My Github Component"
 pnpm start reg:parcel-web-app --overwrite --outputDirectory=./demo-src/reg-app/
+pnpm start reg:react-hook --name=foo --overwrite --outputDirectory=./demo-src/reg-app/
 pnpm start show github:scffld-dev/cli/examples/simple
 ```
 
