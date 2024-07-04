@@ -15,13 +15,39 @@ export const generate = async (argv: string[]) => {
   let basePath: string | undefined = undefined;
   if (basePathArg !== -1) {
     basePath = globs.splice(basePathArg, 1)[0].split('=')[1];
-    console.log('basePath:', basePath);
+    // console.log('basePath:', basePath);
   }
 
-  const paths = await globby(globs);
+  const replaceTokensArg = globs.findIndex((x) =>
+    x.startsWith('--replaceTokens=')
+  );
+  let replaceTokens: Record<string, string> | undefined = undefined;
+  if (replaceTokensArg !== -1) {
+    const replaceTokensValue = globs
+      .splice(replaceTokensArg, 1)[0]
+      .split('=')[1];
+
+    if (replaceTokensValue) {
+      replaceTokens = {};
+      const replaceTokensPairs = replaceTokensValue.split(',');
+      replaceTokensPairs.forEach((pair) => {
+        const [prop, value] = pair.split(':');
+        if (replaceTokens) {
+          replaceTokens[prop] = value;
+        }
+      });
+    }
+
+    // console.log('replaceTokens:', replaceTokens);
+  }
+
+  const paths = await globby(globs, {
+    gitignore: true,
+    ignoreFiles: [`./${basePath}.scffldignore`],
+  });
   const files = await getFiles(paths, basePath);
 
-  console.log(renderTemplate(files));
+  console.log(renderTemplate(files, replaceTokens));
 };
 
 const getFiles = async (

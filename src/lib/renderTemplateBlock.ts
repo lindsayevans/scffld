@@ -97,10 +97,10 @@ export const renderTemplateBlock = (
   return fileContent;
 };
 
-const getDirectiveCommentStart = (type: string, escape = true) => {
+export const getDirectiveCommentStart = (type: string, escape = true) => {
   switch (type) {
     case 'path':
-      return '\\${ ';
+      return escape ? '\\${ ' : '${ ';
     case 'html':
     case 'svg':
     case 'xml':
@@ -116,7 +116,7 @@ const getDirectiveCommentStart = (type: string, escape = true) => {
   }
 };
 
-const getDirectiveCommentEnd = (type: string, escape = true) => {
+export const getDirectiveCommentEnd = (type: string, escape = true) => {
   switch (type) {
     case 'path':
       return ' }';

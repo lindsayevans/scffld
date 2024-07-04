@@ -18,7 +18,7 @@ I wanted something that was a bit less complex than full-blown code generation t
 - Output user-supplied properties in your templates, with conversion & conditional directives
 - Prompt the user for missing properties - enter a text string, yes/no for booleans; or choose from a list of options
 - Display custom messages & run commands after scaffolding
-- ✨ Experimental ✨ [Generate template from existing files](./docs/generator.md)
+- [Generate template from existing files](./docs/generator.md)
 
 Take a look at the [template docs](./docs/templates.md) for full details.
 
