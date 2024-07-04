@@ -41,7 +41,10 @@ export const generate = async (argv: string[]) => {
     // console.log('replaceTokens:', replaceTokens);
   }
 
-  const paths = await globby(globs);
+  const paths = await globby(globs, {
+    gitignore: true,
+    ignoreFiles: [`./${basePath}.scffldignore`],
+  });
   const files = await getFiles(paths, basePath);
 
   console.log(renderTemplate(files, replaceTokens));

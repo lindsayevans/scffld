@@ -17,7 +17,7 @@ See [Replace tokens example](#replace-tokens).
 
 The resulting template is printed to output, to write to a file append ` > path/to/template.md`
 
-If a `.gitignore` is present it will respect it.
+If a `.gitignore` is present it will respect it, also `{basePath}.scffldignore`
 
 ## Examples
 
