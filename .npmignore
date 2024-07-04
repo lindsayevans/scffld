@@ -9,3 +9,4 @@ demo-src
 docs
 tests
 jest.config.*
+generator-demo

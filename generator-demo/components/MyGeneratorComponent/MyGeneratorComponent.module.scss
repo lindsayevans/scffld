@@ -1,0 +1,10 @@
+.myGeneratorComponent {
+  &--active {
+    outline: 1px solid salmon;
+    outline-offset: 2px;
+  }
+
+  &__title {
+    color: teal;
+  }
+}
