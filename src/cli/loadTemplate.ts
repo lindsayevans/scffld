@@ -77,6 +77,7 @@ export const loadTemplate = async (
       )}${templateName.endsWith('.md') ? '' : '.md'}`;
     }
 
+    // TODO: Handle errors
     const response = await fetch(url);
     templateContent = await response.text();
     if (fetchSpinner !== undefined && !quiet) {
@@ -84,6 +85,7 @@ export const loadTemplate = async (
     }
   } else {
     // Local template
+    // TODO: Handle errors
     templateContent = fs
       .readFileSync(
         path.resolve(templateName + (templateName.endsWith('.md') ? '' : '.md'))
