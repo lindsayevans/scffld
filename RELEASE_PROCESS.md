@@ -5,7 +5,8 @@
 ```sh
 pnpm bump prerelease --preid=next
 pnpm build
-pnpm publish --no-git-checks --access public --tag next
+pnpm publish:npm --tag next
+pnpm publish:jsr
 ```
 
 ## Production

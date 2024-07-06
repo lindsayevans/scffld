@@ -16,6 +16,7 @@
     "start": "npm link && scffld",
     "clean": "rm -rf demo-src",
     "bump": "./bump.sh",
+    "publish:npm": "pnpm publish --no-git-checks --access public",
     "publish:jsr": "pnpm jsr publish"
   },
   "keywords": [
