@@ -1,3 +1,4 @@
+/** scffld API entrypoint */
 export * from './lib/getOutputDirectory.js';
 export * from './lib/getTemplateParams.js';
 export * from './lib/parseTemplate.js';

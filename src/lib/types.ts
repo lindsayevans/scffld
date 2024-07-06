@@ -1,5 +1,7 @@
+/** Template property type */
 export type TemplatePropType = string | boolean;
 
+/** Template properties */
 export type TemplateProps = Record<
   string,
   {
@@ -13,8 +15,10 @@ export type TemplateProps = Record<
   }
 >;
 
+/** Template options */
 export type TemplateOptions = Record<string, TemplatePropType>;
 
+/** Template parameters */
 export type TemplateParams = {
   name?: string;
   description?: string;
@@ -28,6 +32,7 @@ export type TemplateParams = {
   options?: TemplateOptions;
 };
 
+/** Rendered template file */
 export type TemplateFile = {
   type: string;
   filename: string;

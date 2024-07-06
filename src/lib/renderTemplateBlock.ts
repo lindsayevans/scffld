@@ -18,6 +18,7 @@ import { getOutputDirectory } from './getOutputDirectory.js';
 
 const DIRECTIVE_PREFIX = '@scffld';
 
+/** Renders a template file block by interpolating directives based on `params` */
 export const renderTemplateBlock = (
   fileType: string,
   fileContent: string,
@@ -97,6 +98,7 @@ export const renderTemplateBlock = (
   return fileContent;
 };
 
+/** Get the directive start comment based on `type`, use `escape false` if not using in a RegEx */
 export const getDirectiveCommentStart = (
   type: string,
   escape = true
@@ -119,6 +121,7 @@ export const getDirectiveCommentStart = (
   }
 };
 
+/** Get the directive end comment based on `type`, use `escape false` if not using in a RegEx */
 export const getDirectiveCommentEnd = (type: string, escape = true): string => {
   switch (type) {
     case 'path':
@@ -138,6 +141,7 @@ export const getDirectiveCommentEnd = (type: string, escape = true): string => {
   }
 };
 
+/** Process conditional directives */
 export const parseConditionals = (
   fileType: string,
   fileContent: string,
