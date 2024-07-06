@@ -2,6 +2,7 @@ import YAML from 'yaml';
 
 import { TemplateParams } from './types.js';
 
+/** The parameters defined in `template` YAML frontmatter */
 export const getTemplateParams = (template: string): TemplateParams => {
   let params = {};
 
