@@ -3,6 +3,7 @@
 # Based on https://github.com/Netflix/x-test/blob/main/bump.sh
 # - update jsr.json instead of deno.json
 # - pass all args through to npm version
+# - don't use package-lock.json
 
 # Wrapper around “npm version” which appends additional logic to also update the
 #  “jsr.json” file which controls how we publish to JSR.
@@ -31,7 +32,6 @@ version="${prefixed_version:1}"
 root_directory="$(dirname "$(realpath "${0}")")"
 jsr_json_file="${root_directory}/jsr.json"
 package_json_file="${root_directory}/package.json"
-package_lock_json_file="${root_directory}/package-lock.json"
 
 # Bump version in jsr.json.
 jsr_json_find="\"version\": \"[^\"]*\""
@@ -42,7 +42,6 @@ echo "${next_jsr_json_file}" > "${jsr_json_file}"
 
 # Commit all our changes.
 git add "${package_json_file}"
-git add "${package_lock_json_file}"
 git add "${jsr_json_file}"
 git commit --message="${version}"
 git tag --annotate "v${version}" --message="${version}"
