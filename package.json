@@ -15,6 +15,7 @@
     "prestart": "pnpm build",
     "start": "npm link && scffld",
     "clean": "rm -rf demo-src",
+    "bump": "./bump.sh",
     "publish:jsr": "pnpm jsr publish"
   },
   "keywords": [

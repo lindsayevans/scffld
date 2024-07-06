@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Based on https://github.com/Netflix/x-test/blob/main/bump.sh
+# - update jsr.json instead of deno.json
+# - pass all args through to npm version
 
 # Wrapper around “npm version” which appends additional logic to also update the
 #  “jsr.json” file which controls how we publish to JSR.
@@ -20,7 +22,7 @@ fi
 # Bump version in package.json using npm version itself. This ensures that we
 #  stay anchored to first-class tooling. We pass “--git-tag-version=false” to
 #  prevent the command from (1) committing changes and (2) creating a tag.
-prefixed_version="$(npm version --git-tag-version=false "${1}")"
+prefixed_version="$(npm version --git-tag-version=false "$@")"
 
 # The “npm version” command will return the value with a “v” prefix. Ditch that.
 version="${prefixed_version:1}"
