@@ -6,6 +6,7 @@ import { renderTemplateBlock } from './renderTemplateBlock.js';
 import { getOutputDirectory } from './getOutputDirectory.js';
 import { sanitisePath } from './sanitisePath.js';
 
+/** Parses a template, rendering each file block using the supplied `params` & returning the resulting `TemplateFile`s */
 export const parseTemplate = (
   templateContent: string,
   params: TemplateParams

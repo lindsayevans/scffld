@@ -1,7 +1,8 @@
 # scffld
 
-[![NPM Version](https://img.shields.io/npm/v/%40scffld%2Fcli)
-](https://www.npmjs.com/package/@scffld/cli)
+[![NPM Version](https://img.shields.io/npm/v/%40scffld%2Fcli)](https://www.npmjs.com/package/@scffld/cli)
+[![JSR](https://jsr.io/badges/@scffld/core)](https://jsr.io/@scffld/core)
+
 [![codecov](https://codecov.io/gh/scffld-dev/cli/graph/badge.svg?token=ERAIXQNUZF)](https://codecov.io/gh/scffld-dev/cli)
 [![Known Vulnerabilities](https://snyk.io/test/github/scffld-dev/cli/badge.svg)](https://snyk.io/test/github/scffld-dev/cli)
 
