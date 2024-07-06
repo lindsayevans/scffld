@@ -23,7 +23,7 @@ export const renderTemplateBlock = (
   fileContent: string,
   params: any,
   renderedPath?: string
-) => {
+): string => {
   if (fileType === 'base64') {
     return atob(fileContent);
   }
@@ -97,7 +97,10 @@ export const renderTemplateBlock = (
   return fileContent;
 };
 
-export const getDirectiveCommentStart = (type: string, escape = true) => {
+export const getDirectiveCommentStart = (
+  type: string,
+  escape = true
+): string => {
   switch (type) {
     case 'path':
       return escape ? '\\${ ' : '${ ';
@@ -116,7 +119,7 @@ export const getDirectiveCommentStart = (type: string, escape = true) => {
   }
 };
 
-export const getDirectiveCommentEnd = (type: string, escape = true) => {
+export const getDirectiveCommentEnd = (type: string, escape = true): string => {
   switch (type) {
     case 'path':
       return ' }';
@@ -139,7 +142,7 @@ export const parseConditionals = (
   fileType: string,
   fileContent: string,
   params: any
-) => {
+): string => {
   const directiveCommentStart = getDirectiveCommentStart(fileType);
   const directiveCommentEnd = getDirectiveCommentEnd(fileType);
 
