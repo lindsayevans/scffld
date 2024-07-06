@@ -1,6 +1,6 @@
 {
   "name": "@scffld/cli",
-  "version": "1.7.1",
+  "version": "1.7.1xxx",
   "description": "Simple code scaffolding tool using a Markdown file to define templates & properties",
   "main": "dist/index.js",
   "bin": {
@@ -8,9 +8,12 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "test:unit": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest",
-    "test:integration": "jest --config=./jest.config.integration.js",
+    "build": "pnpm build:swc && pnpm build:types",
+    "build:npm": "tsc",
+    "build:swc": "swc ./src -d ./dist --ignore **/*.test.ts --strip-leading-paths --config-file .swcrc",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "test:unit": "cross-env NODE_NO_WARNINGS=1 NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest",
+    "test:integration": "cross-env NODE_NO_WARNINGS=1 jest --config=./jest.config.integration.js",
     "test:cli": "scffld examples/simple --overwrite --name=test && scffld github:scffld-dev/cli/examples/simple --overwrite --name=test",
     "prestart": "pnpm build",
     "start": "npm link && scffld",
@@ -38,6 +41,9 @@
   "devDependencies": {
     "@gmrchk/cli-testing-library": "^0.1.2",
     "@jest/globals": "^29.7.0",
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "1.6.9-nightly-20240706.3",
+    "@swc/jest": "^0.2.36",
     "@types/figlet": "^1.5.8",
     "@types/inquirer": "^9.0.7",
     "@types/jest": "^29.5.12",
