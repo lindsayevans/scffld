@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import inquirer from 'inquirer';
+import enquirer from 'enquirer';
 
 import { TemplateOptions, TemplateParams } from '../lib/types.js';
 
@@ -27,7 +27,8 @@ export const checkRequiredOptions = async (
   if (!optionsOkay) {
     try {
       if (params.props) {
-        const prompts: Record<string, any>[] = [];
+        // FIXME: probably need to make our own type for enquirer.PromptOptions...
+        const prompts: any[] = [];
         Object.keys(params.props).forEach((k) => {
           if (params.props) {
             const prop = params.props[k];
@@ -36,8 +37,8 @@ export const checkRequiredOptions = async (
                 prop.type === 'string'
                   ? 'input'
                   : prop.type === 'list'
-                  ? 'list'
-                  : 'confirm',
+                  ? 'select'
+                  : 'toggle',
               name: k,
               message: prop.prompt || k,
               default: prop.default,
@@ -53,7 +54,7 @@ export const checkRequiredOptions = async (
           default: params.outputDirectory,
         });
 
-        const answers = await inquirer.prompt(prompts);
+        const answers = await enquirer.prompt(prompts);
 
         options = { ...options, ...answers };
         optionsOkay = true;

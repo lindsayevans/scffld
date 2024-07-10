@@ -1,6 +1,6 @@
 {
   "name": "@scffld/cli",
-  "version": "1.7.1xxx",
+  "version": "1.7.2-next.0",
   "description": "Simple code scaffolding tool using a Markdown file to define templates & properties",
   "main": "dist/index.js",
   "bin": {
@@ -44,8 +44,6 @@
     "@swc/cli": "^0.4.0",
     "@swc/core": "1.6.9-nightly-20240706.3",
     "@swc/jest": "^0.2.36",
-    "@types/figlet": "^1.5.8",
-    "@types/inquirer": "^9.0.7",
     "@types/jest": "^29.5.12",
     "@types/markdown-it": "^14.1.1",
     "@types/node": "^20.14.7",
@@ -62,9 +60,8 @@
     "chalk": "^5.3.0",
     "change-case": "^5.4.4",
     "commander": "^12.1.0",
-    "figlet": "^1.7.0",
+    "enquirer": "^2.4.1",
     "globby": "^14.0.1",
-    "inquirer": "^9.2.23",
     "json5": "^2.2.3",
     "markdown-it": "^14.1.0",
     "markdown-it-terminal": "^0.4.0",

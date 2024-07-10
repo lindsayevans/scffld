@@ -1,5 +1,5 @@
 import child_process from 'node:child_process';
-import inquirer from 'inquirer';
+import enquirer from 'enquirer';
 import chalk from 'chalk';
 
 import { getOutputDirectory } from '../lib/getOutputDirectory.js';
@@ -30,10 +30,10 @@ export const runCommands = async (
       'Please ensure that you trust the authors or have reviewed the template'
     )
   );
-  const answer = await inquirer.prompt([
+  const answer = await enquirer.prompt<Record<'commands', string[]>>([
     {
       name: 'commands',
-      type: 'checkbox',
+      type: 'multiselect',
       message: 'Check all that you want to be run',
       choices: parsedCommands.map((x) => ({
         name: x,

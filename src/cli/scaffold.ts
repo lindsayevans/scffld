@@ -1,6 +1,5 @@
 import { createRequire } from 'node:module';
 import { program } from 'commander';
-import figlet from 'figlet';
 import ora from 'ora';
 import chalk from 'chalk';
 import { loadTemplate } from './loadTemplate.js';
@@ -16,11 +15,7 @@ export const scaffold = async (argv: string[]) => {
 
   const { version } = createRequire(import.meta.url)('../../package.json');
 
-  console.log(
-    chalk.magenta(figlet.textSync('scffld', { font: 'Ogre' })) +
-      ' ' +
-      chalk.bold.grey(`v${version}`)
-  );
+  console.log(chalk.magenta('scffld') + ' ' + chalk.bold.grey(`v${version}`));
 
   program
     .version(version || '0.0.0')

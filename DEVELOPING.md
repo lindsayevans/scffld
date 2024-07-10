@@ -32,5 +32,5 @@ scffld generator-demo --outputDirectory=./demo-src/ --name="scffld Rocks" --foo=
 Create SVG screenshot - requires [asciinema](https://docs.asciinema.org/getting-started/)
 
 ```sh
-npx svg-term --at=5000 --command="npx scffld github:scffld-dev/cli/examples/simple --name=\"My Awesome Component\"" --out=screenshot.svg --window --no-cursor --width=80 --height=18
+npx svg-term --at=5000 --command="npx scffld github:scffld-dev/cli/examples/simple --name=\"My Awesome Component\"" --out=screenshot.svg --window --no-cursor --width=80 --height=13
 ```
