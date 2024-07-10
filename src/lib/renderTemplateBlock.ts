@@ -18,12 +18,13 @@ import { getOutputDirectory } from './getOutputDirectory.js';
 
 const DIRECTIVE_PREFIX = '@scffld';
 
+/** Renders a template file block by interpolating directives based on `params` */
 export const renderTemplateBlock = (
   fileType: string,
   fileContent: string,
   params: any,
   renderedPath?: string
-) => {
+): string => {
   if (fileType === 'base64') {
     return atob(fileContent);
   }
@@ -97,10 +98,14 @@ export const renderTemplateBlock = (
   return fileContent;
 };
 
-const getDirectiveCommentStart = (type: string, escape = true) => {
+/** Get the directive start comment based on `type`, use `escape false` if not using in a RegEx */
+export const getDirectiveCommentStart = (
+  type: string,
+  escape = true
+): string => {
   switch (type) {
     case 'path':
-      return '\\${ ';
+      return escape ? '\\${ ' : '${ ';
     case 'html':
     case 'svg':
     case 'xml':
@@ -116,7 +121,8 @@ const getDirectiveCommentStart = (type: string, escape = true) => {
   }
 };
 
-const getDirectiveCommentEnd = (type: string, escape = true) => {
+/** Get the directive end comment based on `type`, use `escape false` if not using in a RegEx */
+export const getDirectiveCommentEnd = (type: string, escape = true): string => {
   switch (type) {
     case 'path':
       return ' }';
@@ -135,11 +141,12 @@ const getDirectiveCommentEnd = (type: string, escape = true) => {
   }
 };
 
+/** Process conditional directives */
 export const parseConditionals = (
   fileType: string,
   fileContent: string,
   params: any
-) => {
+): string => {
   const directiveCommentStart = getDirectiveCommentStart(fileType);
   const directiveCommentEnd = getDirectiveCommentEnd(fileType);
 

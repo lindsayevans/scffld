@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { TemplateFile, TemplateParams } from '../lib/types.js';
-import inquirer from 'inquirer';
+import enquirer from 'enquirer';
 import { Ora } from 'ora';
 
 export const checkExistingFiles = async (
@@ -28,14 +28,16 @@ export const checkExistingFiles = async (
     filesToOverwrite.forEach((file) => {
       console.log(` - ${file}`);
     });
-    const overwriteAnswer = await inquirer.prompt([
-      {
-        name: 'overwrite',
-        type: 'confirm',
-        message: 'Do you wish to continue?',
-        default: false,
-      },
-    ]);
+    const overwriteAnswer = await enquirer.prompt<Record<'overwrite', boolean>>(
+      [
+        {
+          name: 'overwrite',
+          type: 'confirm',
+          message: 'Do you wish to continue?',
+          initial: false,
+        },
+      ]
+    );
     overwrite = overwriteAnswer.overwrite;
     spinner.start();
   }

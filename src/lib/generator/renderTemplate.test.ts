@@ -14,7 +14,7 @@ describe('renderTemplate', () => {
     const result = renderTemplate(files);
 
     expect(result).toBeTruthy();
-    expect(result).toContain('# outputDirectory: ./src/');
+    expect(result).toContain('outputDirectory: ./src/');
     expect(result).toContain('```ts');
     expect(result).toContain("```ts { filename: 'foo.ts' }");
     expect(result).toContain('\nconst foo = (foo: string) => foo\n');

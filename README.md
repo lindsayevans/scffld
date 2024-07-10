@@ -1,7 +1,8 @@
 # scffld
 
-[![NPM Version](https://img.shields.io/npm/v/%40scffld%2Fcli)
-](https://www.npmjs.com/package/@scffld/cli)
+[![NPM Version](https://img.shields.io/npm/v/%40scffld%2Fcli)](https://www.npmjs.com/package/@scffld/cli)
+[![JSR](https://jsr.io/badges/@scffld/core)](https://jsr.io/@scffld/core)
+
 [![codecov](https://codecov.io/gh/scffld-dev/cli/graph/badge.svg?token=ERAIXQNUZF)](https://codecov.io/gh/scffld-dev/cli)
 [![Known Vulnerabilities](https://snyk.io/test/github/scffld-dev/cli/badge.svg)](https://snyk.io/test/github/scffld-dev/cli)
 
@@ -18,7 +19,7 @@ I wanted something that was a bit less complex than full-blown code generation t
 - Output user-supplied properties in your templates, with conversion & conditional directives
 - Prompt the user for missing properties - enter a text string, yes/no for booleans; or choose from a list of options
 - Display custom messages & run commands after scaffolding
-- ✨ Experimental ✨ [Generate template from existing files](./docs/generator.md)
+- [Generate template from existing files](./docs/generator.md)
 
 Take a look at the [template docs](./docs/templates.md) for full details.
 
