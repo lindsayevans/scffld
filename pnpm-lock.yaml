@@ -20,9 +20,6 @@ importers:
       commander:
         specifier: ^12.1.0
         version: 12.1.0
-      figlet:
-        specifier: ^1.7.0
-        version: 1.7.0
       globby:
         specifier: ^14.0.1
         version: 14.0.1
@@ -63,9 +60,6 @@ importers:
       '@swc/jest':
         specifier: ^0.2.36
         version: 0.2.36(@swc/core@1.6.9-nightly-20240706.3)
-      '@types/figlet':
-        specifier: ^1.5.8
-        version: 1.5.8
       '@types/inquirer':
         specifier: ^9.0.7
         version: 9.0.7
@@ -574,9 +568,6 @@ packages:
 
   '@types/cacheable-request@6.0.3':
     resolution: {integrity: sha512-IQ3EbTzGxIigb1I3qPZc1rWJnH0BmSKv5QYTalEwweFvyBDLSAe24zP0le/hyi7ecGfZVlIVAg4BZqb8WBwKqw==}
-
-  '@types/figlet@1.5.8':
-    resolution: {integrity: sha512-G22AUvy4Tl95XLE7jmUM8s8mKcoz+Hr+Xm9W90gJsppJq9f9tHvOGkrpn4gRX0q/cLtBdNkWtWCKDg2UDZoZvQ==}
 
   '@types/glob@8.1.0':
     resolution: {integrity: sha512-IO+MJPVhoqz+28h1qLAcBEH2+xHMK6MTyHJc7MTnnYb6wsoLR29POVGJ7LycmVXIqyy/4/2ShP5sUwTXuOwb/w==}
@@ -1236,11 +1227,6 @@ packages:
 
   fb-watchman@2.0.2:
     resolution: {integrity: sha512-p5161BqbuCaSnB8jIbzQHOlpgsPmK5rJVDfDKO91Axs5NC1uu3HRQm6wt9cd9/+GtQQIO53JdGXXoyDpTAsgYA==}
-
-  figlet@1.7.0:
-    resolution: {integrity: sha512-gO8l3wvqo0V7wEFLXPbkX83b7MVjRrk1oRLfYlZXol8nEpb/ON9pcKLI4qpBv5YtOTfrINtqb7b40iYY2FTWFg==}
-    engines: {node: '>= 0.4.0'}
-    hasBin: true
 
   file-type@17.1.6:
     resolution: {integrity: sha512-hlDw5Ev+9e883s0pwUsuuYNu4tD7GgpUnOvykjv1Gya0ZIjuKumthDRua90VUn6/nlRKAjcxLUnHNTIUWwWIiw==}
@@ -3390,8 +3376,6 @@ snapshots:
       '@types/node': 20.14.7
       '@types/responselike': 1.0.3
 
-  '@types/figlet@1.5.8': {}
-
   '@types/glob@8.1.0':
     dependencies:
       '@types/minimatch': 5.1.2
@@ -4147,8 +4131,6 @@ snapshots:
   fb-watchman@2.0.2:
     dependencies:
       bser: 2.1.1
-
-  figlet@1.7.0: {}
 
   file-type@17.1.6:
     dependencies:
