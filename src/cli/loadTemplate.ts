@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import ora, { Ora } from 'ora';
 
+const REG_PROXY_TIMEOUT = 600;
+
 export const loadTemplate = async (
   templateName: string,
   options: { quiet?: boolean } = {}
@@ -53,9 +55,9 @@ export const loadTemplate = async (
         const proxyUrl = `https://scffld-api.azurewebsites.net/TemplateProxy/${parts.join(
           '/'
         )}${revision !== 'HEAD' ? `/${revision}` : ''}`;
-        console.info(`\nFetching from proxy: ${proxyUrl}`);
+        // console.info(`\nFetching from proxy: ${proxyUrl}`);
         const response = await fetch(proxyUrl, {
-          signal: AbortSignal.timeout(3000),
+          signal: AbortSignal.timeout(REG_PROXY_TIMEOUT),
         });
         if (response.ok && response.body) {
           templateContent = await response.text();
@@ -63,15 +65,15 @@ export const loadTemplate = async (
             if (fetchSpinner !== undefined && !quiet) {
               fetchSpinner.succeed();
             }
-            console.info(`\nGot template content from '${proxyUrl}'`);
+            // console.info(`\nGot template content from '${proxyUrl}'`);
             return templateContent;
           }
         }
       } catch (e) {
         // Catch errors & fallback to direct GitHub access
-        console.warn('\nError from proxy:', e);
+        // console.warn('\nError from proxy:', e);
       }
-      console.warn('\nSomething broke in the proxy, fallback to GH');
+      // console.warn('\nSomething broke in the proxy, fallback to GH');
       url = `https://raw.githubusercontent.com/scffld-dev/website/${revision}/templates/${parts.join(
         '/'
       )}${templateName.endsWith('.md') ? '' : '.md'}`;
