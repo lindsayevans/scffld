@@ -14,6 +14,7 @@ pnpm start https://raw.githubusercontent.com/scffld-dev/cli/develop/examples/sim
 pnpm start github:scffld-dev/cli/examples/simple --name="My Github Component"
 pnpm start github:scffld-dev/cli/examples/simple@main --name="My Github Component"
 pnpm start reg:parcel-web-app --overwrite --outputDirectory=./demo-src/reg-app/
+pnpm start reg:react-hook --name=foo --overwrite --outputDirectory=./demo-src/reg-app/
 pnpm start show github:scffld-dev/cli/examples/simple
 ```
 
@@ -32,5 +33,5 @@ scffld generator-demo --outputDirectory=./demo-src/ --name="scffld Rocks" --foo=
 Create SVG screenshot - requires [asciinema](https://docs.asciinema.org/getting-started/)
 
 ```sh
-npx svg-term --at=5000 --command="npx scffld github:scffld-dev/cli/examples/simple --name=\"My Awesome Component\"" --out=screenshot.svg --window --no-cursor --width=80 --height=18
+npx svg-term --at=5000 --command="npx scffld github:scffld-dev/cli/examples/simple --name=\"My Awesome Component\"" --out=screenshot.svg --window --no-cursor --width=80 --height=13
 ```
