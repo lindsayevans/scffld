@@ -65,7 +65,7 @@
     "json5": "^2.2.3",
     "markdown-it": "^14.1.0",
     "markdown-it-terminal": "^0.4.0",
-    "ora": "^8.0.1",
+    "ora": "^8.2.0",
     "shell-quote": "^1.8.1",
     "yaml": "^2.4.5"
   }
