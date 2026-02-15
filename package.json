@@ -63,7 +63,7 @@
     "enquirer": "^2.4.1",
     "globby": "^14.0.1",
     "json5": "^2.2.3",
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^14.1.1",
     "markdown-it-terminal": "^0.4.0",
     "ora": "^8.0.1",
     "shell-quote": "^1.8.1",
